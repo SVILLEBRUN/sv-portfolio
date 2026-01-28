@@ -9,5 +9,12 @@ export default defineNuxtConfig({
             tailwindcss(),
         ],
     },
-    modules: ['@nuxt/ui']
+    modules: ['@nuxt/ui'],
+    app: {
+        head: {
+            link: [
+                { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg?v=1' }
+            ]
+        }
+    }
 })
