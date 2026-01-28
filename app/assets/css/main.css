@@ -29,18 +29,16 @@
 
 /* Background color variables */
 :root {
-    --ui-bg-dimmed: var(--ui-color-neutral-200);
-    --ui-bg-muted: var(--ui-color-neutral-300);
-    --ui-bg-toned: var(--ui-color-neutral-400);
     --ui-bg: var(--ui-color-neutral-100);
-    --ui-bg-highlighted: var(--ui-color-neutral-50);
+    --ui-bg-muted: var(--ui-color-neutral-200);
+    --ui-bg-elevated: var(--ui-color-neutral-300);
+    --ui-bg-accented: var(--ui-color-neutral-400);
     --ui-bg-inverted: var(--ui-color-neutral-950);
 }
 .dark {
-    --ui-bg-dimmed: var(--ui-color-neutral-900);
-    --ui-bg-muted: var(--ui-color-neutral-800);
-    --ui-bg-toned: var(--ui-color-neutral-700);
     --ui-bg: var(--ui-color-neutral-950);
-    --ui-bg-highlighted: black;
+    --ui-bg-muted: var(--ui-color-neutral-900);
+    --ui-bg-elevated: var(--ui-color-neutral-800);
+    --ui-bg-accented: var(--ui-color-neutral-700);
     --ui-bg-inverted: var(--ui-color-neutral-100);
 }
