@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <h1>
-        Sébastien VILLEBRUN
-    </h1>
-  </div>
+    <UApp>
+        <AppHeader />
+        <NuxtPage />
+        <AppFooter />
+    </UApp>
 </template>
