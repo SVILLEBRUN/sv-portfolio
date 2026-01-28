@@ -8,10 +8,39 @@
     --font-mono: 'Plus Jakarta Sans', monospace;
 }
 
-body {
-    @apply bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-slate-100;
+/* Text color variables */
+:root {
+    --ui-text-dimmed: var(--ui-color-neutral-500);
+    --ui-text-muted: var(--ui-color-neutral-600);
+    --ui-text-toned: var(--ui-color-neutral-700);
+    --ui-text: var(--ui-color-neutral-900);
+    --ui-text-highlighted: var(--ui-color-neutral-950);
+    --ui-text-inverted: var(--ui-color-neutral-100);
 }
 
-.text-muted {
-    @apply text-slate-600 dark:text-slate-400;
+.dark {
+    --ui-text-dimmed: var(--ui-color-neutral-500);
+    --ui-text-muted: var(--ui-color-neutral-400);
+    --ui-text-toned: var(--ui-color-neutral-300);
+    --ui-text: var(--ui-color-neutral-100);
+    --ui-text-highlighted: var(--ui-color-neutral-50);
+    --ui-text-inverted: var(--ui-color-neutral-900);
+}
+
+/* Background color variables */
+:root {
+    --ui-bg-dimmed: var(--ui-color-neutral-200);
+    --ui-bg-muted: var(--ui-color-neutral-300);
+    --ui-bg-toned: var(--ui-color-neutral-400);
+    --ui-bg: var(--ui-color-neutral-100);
+    --ui-bg-highlighted: var(--ui-color-neutral-50);
+    --ui-bg-inverted: var(--ui-color-neutral-950);
+}
+.dark {
+    --ui-bg-dimmed: var(--ui-color-neutral-900);
+    --ui-bg-muted: var(--ui-color-neutral-800);
+    --ui-bg-toned: var(--ui-color-neutral-700);
+    --ui-bg: var(--ui-color-neutral-950);
+    --ui-bg-highlighted: black;
+    --ui-bg-inverted: var(--ui-color-neutral-100);
 }
