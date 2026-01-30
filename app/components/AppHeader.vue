@@ -22,6 +22,8 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
 
+const { data: header } = await useAsyncData('header', () => queryCollection('header').first())
+
 const nuxtApp = useNuxtApp()
 const { activeHeadings, updateHeadings } = useScrollspy()
 
@@ -35,18 +37,18 @@ onMounted(() => {
 
 const items = computed<NavigationMenuItem[]>(() => [
     { 
-        label: 'Ma personnalité',
-        to: '#about',
+        label: header.value?.links[0]?.label,
+        to: header.value?.links[0]?.to,
         active: activeHeadings.value.includes('about') && !activeHeadings.value.includes('projects')
     },
     { 
-        label: 'Projets',
-        to: '#projects',
+        label: header.value?.links[1]?.label,
+        to: header.value?.links[1]?.to,
         active: activeHeadings.value.includes('projects')
     },
     { 
-        label: 'Contactez-moi',
-        to: '#contact',
+        label: header.value?.links[2]?.label,
+        to: header.value?.links[2]?.to,
         active: activeHeadings.value.includes('contact') && !activeHeadings.value.includes('projects')
     }
 ])
