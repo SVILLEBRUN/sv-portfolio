@@ -64,7 +64,3 @@ nuxtApp.hooks.hookOnce('page:finish', () => {
 
 
 </script>
-
-<style scoped>
-
-</style>
