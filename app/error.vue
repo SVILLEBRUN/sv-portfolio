@@ -29,7 +29,7 @@ const DEFAULT_ERROR = {
 
 const ERROR_MAP: Record<number, typeof DEFAULT_ERROR> = {
     403: { statusMessage: 'Forbidden', message: 'You do not have the necessary permissions.' },
-    404: { statusMessage: 'Not Found', message: 'The page you are looking for does not exist.' },
+    404: { statusMessage: 'Page Not Found', message: 'The page you are looking for does not exist.' },
     500: { statusMessage: 'Server Error', message: 'The server is experiencing a temporary issue, please try again later.' },
     503: { statusMessage: 'Service Unavailable', message: 'The site is currently under maintenance, please try again later.' }
 }
