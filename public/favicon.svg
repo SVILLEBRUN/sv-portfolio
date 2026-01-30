@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .lettre-s { fill: black; }
+        
+        @media (prefers-color-scheme: dark) {
+            .lettre-s { fill: white; }
+        }
+    </style>
+    <text 
+        x="50%" 
+        y="50%"
+        text-anchor="middle" 
+        dominant-baseline="central"
+        font-family="Arial, sans-serif" 
+        font-size="160" 
+        font-weight="bold"
+    >
+        <tspan class="lettre-s" dx="-2">S</tspan><tspan fill="oklch(67.3% 0.182 276.935)" dx="-10">V</tspan>
+    </text>
+</svg>
