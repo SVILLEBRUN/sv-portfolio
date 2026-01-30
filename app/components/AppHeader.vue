@@ -76,7 +76,4 @@ nuxtApp.hooks.hookOnce('page:finish', () => {
         document.querySelector('#contact')
     ].filter(Boolean) as Element[])
 })
-
-
-
 </script>
