@@ -1,7 +1,0 @@
-links:
-    - label: Ma personnalité
-      to: '#about'
-    - label: Projets
-      to: '#projects'
-    - label: Contactez-moi
-      to: '#contact'

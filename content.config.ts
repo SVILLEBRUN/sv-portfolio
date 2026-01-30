@@ -17,19 +17,18 @@ const createButtonSchema = () => z.object({
     icon: z.string().optional().editor({ input: 'icon' }),
 })
 
-
 export default defineContentConfig({
     collections: {
         header: defineCollection({
             type: 'page',
-            source: 'header.yml',
+            source: '**/header.yml',
             schema: z.object({
                 links: z.array(createLinkSchema())
             })
         }),
         index: defineCollection({
             type: 'page',
-            source: 'index.yml',
+            source: '**/index.yml',
             schema: z.object({
                 seo: z.object({
                     title: z.string().nonempty(),
@@ -46,6 +45,5 @@ export default defineContentConfig({
                 // contact: 
             })
         })
-
     }
 })

@@ -1,0 +1,12 @@
+seo:
+  title: "Creative Developer Portfolio | My Name"
+  description: "Discover my projects, my background, and how we can work together on your next digital challenge."
+
+hero:
+  info: "Open to work with you"
+  title: "Turning ideas into digital experiences"
+  description: "I am a developer passionate about creating clean, performant, and user-friendly applications."
+  button:
+    label: "View my work"
+    to: "#projects"
+    icon: "lucide:arrow-right"

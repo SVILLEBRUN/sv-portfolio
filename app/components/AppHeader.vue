@@ -22,7 +22,23 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
 
-const { data: header } = await useAsyncData('header', () => queryCollection('header').first())
+const { locale, defaultLocale } = useI18n()
+const { data: header } = await useAsyncData('header-' + locale.value, async () => {
+    let content = await queryCollection('header')
+        .path(`/${locale.value}/header`)
+        .first()
+    if (!content && locale.value !== defaultLocale ) {
+        content = await queryCollection('header')
+            .path('/fr/header')
+            .first()
+    }
+    return content
+})
+
+if(!header.value) {
+    throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
+}
+
 
 const nuxtApp = useNuxtApp()
 const { activeHeadings, updateHeadings } = useScrollspy()

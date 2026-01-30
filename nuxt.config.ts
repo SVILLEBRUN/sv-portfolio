@@ -9,12 +9,21 @@ export default defineNuxtConfig({
             tailwindcss(),
         ],
     },
-    modules: ['@nuxt/ui', '@nuxt/content'],
+    modules: ['@nuxt/ui', '@nuxt/content', '@nuxtjs/i18n'],
     app: {
         head: {
             link: [
                 { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg?v=1' }
             ]
         }
+    },
+    i18n: {
+        locales: [
+            { code: 'fr', name: 'Français', language: 'fr-FR', dir: 'ltr' },
+            { code: 'en', name: 'English', language: 'en-US', dir: 'ltr' }
+        ],
+        strategy: 'prefix_and_default',
+        defaultLocale: 'fr',
+        detectBrowserLanguage: { useCookie: true, fallbackLocale: 'fr', cookieKey: 'i18n_redirected' }
     }
 })

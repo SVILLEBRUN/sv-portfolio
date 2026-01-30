@@ -1,0 +1,13 @@
+seo:
+  title: Sébastien.V - Fullstack Developer
+  description: Welcome to my portfolio! I am Sébastien VILLEBRUN, a Fullstack Developer specializing in web and mobile SaaS application development.
+hero:
+  info: Available for new opportunities
+  title: Fullstack Developer
+  description: | 
+    Fullstack JavaScript and TypeScript developer.
+    Passionate about building applications using technologies like React, Next, and Nest.js.
+  button: 
+    label: Discover
+    to: '#about'
+about:
