@@ -42,3 +42,12 @@
     --ui-bg-accented: var(--ui-color-neutral-700);
     --ui-bg-inverted: var(--ui-color-neutral-100);
 }
+
+
+/* Typography */
+.text-gradient {
+    background: linear-gradient(to right, var(--ui-primary), var(--ui-secondary)); 
+    background-clip: text; 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
+}

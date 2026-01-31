@@ -6,7 +6,7 @@ export default defineAppConfig({
         },
         header: {
             slots: {
-                root: 'bg-default/75 backdrop-blur border-b border-default h-(--ui-header-height) fixed top-0 w-full z-50 transition-colors duration-500 ease-in-out'
+                root: 'dark:bg-white/[0.03] bg-white/80 backdrop-blur-md border-b border-default h-(--ui-header-height) fixed top-0 w-full z-50 transition-colors duration-500 ease-in-out'
             }
         }
     }

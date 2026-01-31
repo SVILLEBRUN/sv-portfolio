@@ -35,7 +35,7 @@ export default defineContentConfig({
                     description: z.string().nonempty()
                 }),
                 hero: z.object({
-                    info: z.string().nonempty(),
+                    headline: z.string().nonempty(),
                     title: z.string().nonempty(),
                     description: z.string().nonempty(),
                     button: createButtonSchema()
