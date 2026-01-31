@@ -1,9 +1,9 @@
 <template>
     <div class="h-screen flex flex-col justify-center items-center text-center px-4 bg-radial-[circle_at_center] dark:from-primary/15 from-primary/10 from-0% dark:to-neutral-950 to-neutral-100/ to-70%">
         <div v-motion-slide-up>
-            <div class="font-bold mb-4 tracking-widest uppercase text-sm text-success">{{ page.hero.headline }}</div>
-            <div class="text-5xl md:text-7xl font-bold mb-6" v-html="page.hero.title"></div>
-            <p class="text-muted max-w-2xl mx-auto mt-4 text-lg mb-8 font-medium">
+            <div class="font-bold mb-4 sm:mb-6 md:mb-8 tracking-widest uppercase md:text-sm text-xs text-success">{{ page.hero.headline }}</div>
+            <div class="text-5xl md:text-7xl font-bold mb-8 sm:mb-10 md:mb-14" v-html="page.hero.title"></div>
+            <p class="text-muted max-w-2xl mx-auto md:text-lg text-base mb-10 sm:mb-12 md:mb-16 lg:mb-20 font-medium">
                 {{ page.hero.description }}
             </p>
             <div class="flex space-x-4 justify-center">
