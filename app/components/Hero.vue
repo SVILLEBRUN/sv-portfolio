@@ -3,7 +3,7 @@
         <div v-motion-slide-up>
             <div class="font-bold mb-4 sm:mb-6 md:mb-8 tracking-widest uppercase md:text-sm text-xs text-success">{{ page.hero.headline }}</div>
             <div class="text-5xl md:text-7xl font-bold mb-8 sm:mb-10 md:mb-14" v-html="page.hero.title"></div>
-            <p class="text-muted max-w-2xl mx-auto md:text-lg text-base mb-10 sm:mb-12 md:mb-16 lg:mb-20 font-medium">
+            <p class="text-muted max-w-3xl mx-auto md:text-lg text-sm mb-10 sm:mb-12 md:mb-16 lg:mb-20 font-medium">
                 {{ page.hero.description }}
             </p>
             <div class="flex space-x-4 justify-center">
