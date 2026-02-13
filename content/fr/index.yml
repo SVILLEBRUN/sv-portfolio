@@ -1,10 +1,10 @@
 seo: 
   title: Sébastien.V - Développeur Fullstack Node.js & Vue.js & Ruby on Rails
-  description: Bienvenu sur mon portfolio ! Je suis Sébastien VILLEBRUN, un développeur FullStack. Je suis spécialisé dans le développement d'application saas web et mobile.
+  description: Bienvenu sur mon portfolio ! Je suis Sébastien VILLEBRUN, un développeur FullStack, spécialisé dans le développement d'application saas web et mobile.
 hero:
   headline: Disponible pour de nouvelles missions
   title: Développeur <span class="text-gradient">FullStack</span>
-  description: Développeur FullStack expert Node.js, Vue.js et Nuxt.js. Spécialisé dans la conception d'applications SaaS performantes et évolutives.
+  description: Je conçois et développe des applications Saas performantes, scalables et centrées sur l'utilisateur.
   button: 
     label: Découvrir
     to: '#about'

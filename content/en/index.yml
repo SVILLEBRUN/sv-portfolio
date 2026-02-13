@@ -1,12 +1,11 @@
-seo:
-  title: "Creative Developer Portfolio | My Name"
-  description: "Discover my projects, my background, and how we can work together on your next digital challenge."
-
+seo: 
+  title: Sébastien.V - Fullstack Developer | Node.js, Vue.js & Ruby on Rails
+  description: Welcome to my portfolio! I'm Sébastien VILLEBRUN, a FullStack Developer specializing in building SaaS web and mobile applications.
 hero:
-  info: "Open to work with you"
-  title: "Turning ideas into digital experiences"
-  description: "I am a developer passionate about creating clean, performant, and user-friendly applications."
-  button:
-    label: "View my work"
-    to: "#projects"
-    icon: "lucide:arrow-right"
+  headline: Open to new opportunities
+  title: <span class="text-gradient">FullStack</span> Developer
+  description: I design and develop high-performance, scalable, and user-centric SaaS applications.
+  button: 
+    label: Learn More
+    to: '#about'
+about:
