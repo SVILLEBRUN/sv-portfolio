@@ -12,6 +12,7 @@
   "dependencies": {
     "@iconify-json/lucide": "^1.2.87",
     "@nuxt/content": "^3.11.0",
+    "@nuxt/image": "^2.0.0",
     "@nuxt/ui": "^4.4.0",
     "@nuxtjs/i18n": "^10.2.1",
     "@tailwindcss/vite": "^4.1.18",

@@ -9,13 +9,16 @@ export default defineNuxtConfig({
             tailwindcss(),
         ],
     },
-    modules: ['@nuxt/ui', '@nuxt/content', '@nuxtjs/i18n', '@vueuse/motion/nuxt'],
+    modules: ['@nuxt/ui', '@nuxt/content', '@nuxtjs/i18n', '@vueuse/motion/nuxt', '@nuxt/image'],
     app: {
         head: {
             link: [
                 { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg?v=1' }
             ]
         }
+    },
+    image: {
+        dir: 'assets/images'
     },
     i18n: {
         locales: [
