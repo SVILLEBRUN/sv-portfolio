@@ -9,7 +9,7 @@ export default defineNuxtConfig({
             tailwindcss(),
         ],
     },
-    modules: ['@nuxt/ui', '@nuxt/content', '@nuxtjs/i18n', '@vueuse/motion/nuxt', '@nuxt/image'],
+    modules: ['@nuxt/ui', '@nuxt/content', '@nuxtjs/i18n', '@nuxt/image'],
     app: {
         head: {
             link: [
@@ -28,26 +28,5 @@ export default defineNuxtConfig({
         strategy: 'prefix_and_default',
         defaultLocale: 'fr',
         detectBrowserLanguage: { useCookie: true, fallbackLocale: 'fr', cookieKey: 'i18n_redirected' }
-    },
-    runtimeConfig: {
-        public: {
-            motion: {
-                directives: {
-                    'slide-up': {
-                        initial: { opacity: 0, y: 100 },
-                        visibleOnce: {
-                            opacity: 1,
-                            y: 0,
-                            transition: {
-                                type: 'keyframes',
-                                duration: 1200,
-                                ease: 'easeOut'
-                            }
-
-                        }
-                    }
-                }
-            }
-        }
     }
 })
