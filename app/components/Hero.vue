@@ -6,9 +6,35 @@
             <p class="text-muted max-w-3xl mx-auto md:text-lg text-sm mb-10 sm:mb-12 md:mb-16 lg:mb-20 font-medium">
                 {{ page.hero.description }}
             </p>
-            <div class="flex space-x-4 justify-center">
-                <UButton size="xl" :to="page.hero.button.to" class="font-bold px-8" variant="outline">
-                    {{ page.hero.button.label }}
+            <div class="flex flex-wrap justify-center gap-2 items-center">
+                <UButton 
+                    v-for="(skill, skill_index) of main_skills"
+                    :key="skill_index"
+                    disabled
+                    variant="outline"
+                    color="neutral"
+                    class="px-4 py-2"
+                >
+                    {{ skill }}
+                </UButton>
+            </div>
+            <div class="mt-16 sm:mt-20 md:mt-24">
+                <UButton
+                    :to="page.hero.button.to"
+                    variant="ghost"
+                    class="group relative flex flex-col items-center hover:bg-transparent active:bg-transparent transition-all animate-soft-bounce"
+                >
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-12 h-12 bg-secondary/40 rounded-full blur-xl animate-pulse group-hover:bg-secondary/60 transition-colors"></div>
+                    </div>
+
+                    <div class="relative flex flex-col items-center">
+                        <UIcon 
+                            size="lg"
+                            name="i-lucide-chevron-down" 
+                            class="w-12 h-12 sm:w-18 sm:h-18 text-toned group-hover:text-muted transition-colors"
+                        />
+                    </div>
                 </UButton>
             </div>
         </div>
@@ -19,4 +45,14 @@
 import type { IndexCollectionItem } from '@nuxt/content'
 
 defineProps<{ page: IndexCollectionItem }>()
+
+const main_skills = [
+    'Vue.js/Nuxt.js',
+    'Typescript',
+    'Node.js',
+    'Ruby on Rails',
+    'MongoDB',
+    'Docker'
+]
+
 </script>
