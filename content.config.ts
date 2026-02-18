@@ -39,8 +39,19 @@ export default defineContentConfig({
                     title: z.string().nonempty(),
                     description: z.string().nonempty(),
                     button: createButtonSchema()
-                })
-                // about: 
+                }),
+                about: z.object({
+                    title: z.string().nonempty(),
+                    skills: z.array(z.object({
+                        title: z.string().nonempty(),
+                        image: z.string().nonempty(),
+                        items: z.array(z.object({
+                            title: z.string().nonempty(),
+                            description: z.string().nonempty(),
+                            logo: z.string().optional().editor({ input: 'icon' })
+                        }))
+                    })),
+                }),
                 // projects: 
                 // contact: 
             })
