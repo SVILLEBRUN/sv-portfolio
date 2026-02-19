@@ -20,7 +20,7 @@
             </div>
             <div class="mt-16 sm:mt-20 md:mt-24">
                 <UButton
-                    :to="page.hero.button.to"
+                    to="#about"
                     variant="ghost"
                     class="group relative flex flex-col items-center hover:bg-transparent active:bg-transparent transition-all animate-soft-bounce"
                 >

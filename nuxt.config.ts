@@ -20,6 +20,12 @@ export default defineNuxtConfig({
     image: {
         dir: 'assets/images'
     },
+    components: [
+        {
+            path: '~/components',
+            pathPrefix: false
+        }
+    ],
     i18n: {
         locales: [
             { code: 'fr', name: 'Français', language: 'fr-FR', dir: 'ltr' },
