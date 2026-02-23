@@ -1,3 +1,20 @@
+<template>
+    <div ref="target" class="relative inline-block">
+        
+        <div
+            v-if="isMounted"
+            ref="tooltipContainer"
+            class="absolute left-1/2 bottom-full mb-2 z-50 pointer-events-none -translate-x-1/2"
+        >
+            <div ref="tooltipContent">
+                <slot name="tooltip" />
+            </div>
+        </div>
+
+        <slot />
+    </div>
+</template>
+
 <script setup lang="ts">
 import { ref, watch, onMounted } from 'vue'
 import { useMouseInElement } from '@vueuse/core'
@@ -65,20 +82,3 @@ onMounted(() => {
     variant.value = 'leave'
 })
 </script>
-
-<template>
-    <div ref="target" class="relative inline-block">
-        
-        <div
-            v-if="isMounted"
-            ref="tooltipContainer"
-            class="absolute left-1/2 bottom-full mb-2 z-50 pointer-events-none -translate-x-1/2"
-        >
-            <div ref="tooltipContent">
-                <slot name="tooltip" />
-            </div>
-        </div>
-
-        <slot />
-    </div>
-</template>
