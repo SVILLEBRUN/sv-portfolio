@@ -10,10 +10,9 @@
                 <UButton 
                     v-for="(skill, skill_index) of main_skills"
                     :key="skill_index"
-                    disabled
                     variant="outline"
                     color="neutral"
-                    class="px-4 py-2"
+                    class="px-4 py-2 cursor-default hover:bg-neutral active:bg-neutral"
                 >
                     {{ skill }}
                 </UButton>
