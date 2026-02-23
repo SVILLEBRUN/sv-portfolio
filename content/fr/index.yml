@@ -5,63 +5,122 @@ hero:
   headline: Disponible pour de nouvelles missions
   title: Développeur <span class="text-gradient">FullStack</span>
   description: Je conçois et développe des applications Saas performantes, scalables et centrées sur l'utilisateur.
-  button: 
-    label: Découvrir
-    to: '#about'
 about:
   title: Présentation
   skills:
     - title: Développeur Frontend
-      image: /skills/frontend.png
+      image: /frontend.png
       items:
         - title: TypeScript
           description: Langage
-          logo: /skills/typescript.png
+          logo: /tools_logo/typescript.png
         - title: Vue.js
           description: Framework
-          logo: /skills/vue_js.png
+          logo: /tools_logo/vue_js.png
         - title: Nuxt.js
           description: Framework
-          logo: /skills/nuxt_js.png
+          logo: /tools_logo/nuxt_js.png
         - title: Tailwind CSS
           description: Librairie CSS
-          logo: /skills/tailwind_css.png
+          logo: /tools_logo/tailwind_css.png
         - title: WebSockets
           description: Protocole temps-réel
-          logo: /skills/websockets.png
+          logo: /tools_logo/websockets.png
         - title: i18n
           description: Internationalisation
-          logo: /skills/i18n.png
+          logo: /tools_logo/i18n.png
     - title: Développeur Backend
-      image: /skills/backend.png
+      image: /backend.png
       items:
         - title: Node.js
           description: Environnement
-          logo: /skills/node_js.png
+          logo: /tools_logo/node_js.png
         - title: Express.js
           description: Framework
-          logo: /skills/express_js.png
+          logo: /tools_logo/express_js.png
         - title: Ruby on Rails,
           description: Framework
-          logo: /skills/ruby_on_rails.png
+          logo: /tools_logo/ruby_on_rails.png
         - title: PostgreSQL
           description: Base de données relationnelle
-          logo: /skills/postgreSQL.png
+          logo: /tools_logo/postgreSQL.png
         - title: MongoDB
           description: Base de données NoSQL
-          logo: /skills/mongo_db.png
+          logo: /tools_logo/mongo_db.png
         - title: JWT / Authentification
           description: Sécurité
-          logo: /skills/jwt.png
+          logo: /tools_logo/jwt.png
     - title: Architecture & CI-CD
-      image: /skills/devops.png
+      image: /devops.png
       items:
         - title: Docker
           description: Conteneur
-          logo: /skills/docker.png
+          logo: /tools_logo/docker.png
         - title: GitHub-Actions
           description: CI-CD
-          logo: /skills/github_actions.png
+          logo: /tools_logo/github_actions.png
         - title: Nginx
           description: Serveur web & reverse proxy
-          logo: /skills/nginx.png
+          logo: /tools_logo/nginx.png
+  stack:
+    title: Ma stack préférée
+    items: [ Nuxt.js, Express.js, MongoDB, Docker ]
+  copy_email:
+    title: Me contacter
+    button_default:  Enregistrer mon email
+    button_success:  Email copié !
+  tools:
+    title: Mes outils favoris
+    items:
+      - title: Nuxt.js
+        logo: /tools_logo/nuxt_js.png
+      - title: Vue.js
+        logo: /tools_logo/vue_js.png
+      - title: ReactNative
+        logo: /tools_logo/react_native.png 
+      - title: React JS
+        logo: /tools_logo/react_js.png 
+      - title: Tailwind
+        logo: /tools_logo/tailwind_css.png
+      - title: Javascript
+        logo: /tools_logo/javascript.png
+      - title: HTML
+        logo: /tools_logo/html.png
+      - title: CSS
+        logo: /tools_logo/css.png
+      - title: Figma
+        logo: /tools_logo/figma.png
+      - title: Node.js
+        logo: /tools_logo/node_js.png
+      - title: Express.js
+        logo: /tools_logo/express_js.png
+      - title: Ruby on Rails
+        logo: /tools_logo/ruby_on_rails.png
+      - title: Ruby
+        logo: /tools_logo/ruby.png
+      - title: JWT
+        logo: /tools_logo/jwt.png
+      - title: Postman
+        logo: /tools_logo/postman.png
+      - title: Docker
+        logo: /tools_logo/docker.png
+      - title: GitHub-Actions
+        logo: /tools_logo/github_actions.png
+      - title: Nginx
+        logo: /tools_logo/nginx.png
+      - title: WebSockets
+        logo: /tools_logo/websockets_white.png
+      - title: i18n
+        logo: /tools_logo/i18n.png
+      - title: MongoDB
+        logo: /tools_logo/mongo_db.png
+      - title: MySQL
+        logo: /tools_logo/mysql.png
+      - title: PostgreSQL
+        logo: /tools_logo/postgreSQL.png
+      - title: Firebase
+        logo: /tools_logo/firebase.png
+  projects:
+    title: Mes projets
+    items:
+      - title: P

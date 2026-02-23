@@ -1,10 +1,11 @@
 <template>
-    <template v-if="page">
+    <template v-if="page && about_me">
         <Hero :page />
 
         <div class="container border-x border-default" id="about">
-            <div class="text-3xl md:text-5xl font-bold sm:py-10 md:py-14 text-center">{{ page.about.title }}</div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="text-3xl md:text-5xl font-bold mt-12 md:mt-30 text-center">{{ page.about.title }}</div>
+            <!-- About.skills -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
                 <div v-for="(skill, skill_index) in page.about.skills" 
                     :key="skill_index" 
                     class="relative  group rounded-4xl p-px hover:z-50"
@@ -42,13 +43,68 @@
                     </div>
                 </div>
             </div>
+
+            <!-- About_me -->
+            <div class="mt-20 md:mt-30 grid grid-cols-1 md:grid-cols-5 gap-4">
+                <div class="md:col-span-3 border border-default rounded-2xl py-4 px-8 md:py-10 md:px-16 text-sm/6">
+                    <ContentRenderer :value="about_me" class="text-sm" :prose="true" />
+                </div>
+                <div class="md:col-span-2 flex flex-col h-full gap-4">
+                    <div class="flex-1 border border-default rounded-2xl py-4 px-4 md:py-10 md:px-8">
+                        <div class="md:text-2xl text-xl font-bold mb-4">{{ page.about.stack.title }}</div>
+                        <div class="flex flex-wrap gap-4">
+                            <UButton 
+                                v-for="(item, tech_index) of page.about.stack.items"
+                                :key="tech_index"
+                                variant="soft"
+                                color="primary"
+                                class="px-8 py-4 cursor-default"
+                            >
+                                {{ item }}
+                            </UButton>
+                        </div>
+
+                    </div>
+                    <div class="flex-1 border border-default rounded-2xl py-4 px-4 md:py-10 md:px-8">
+                        <div class="md:text-2xl text-xl font-bold">{{ page.about.copy_email.title }}</div>
+                        <div class="flex items-center justify-center h-full">
+                            <EmailButton 
+                                :email="'sebastien.villebrun@gmail.com'" 
+                                :default-text="page.about.copy_email.button_default"
+                                :success-text="page.about.copy_email.button_success"
+                           />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- about.tools -->
+            <div>
+                <div class="md:text-2xl text-xl font-bold mb-12 mt-12 md:mt-30 text-center">{{ page.about.tools.title }}</div>
+                <UCarousel 
+                    ref="carouselRef"
+                    @mouseleave="restartCarousel"
+                    v-slot="{ item }" 
+                    :items="page.about.tools.items"
+                    loop 
+                    :auto-scroll="{ speed: -1 }"
+                    wheel-gestures
+                    :ui="{ item: 'basis-auto' }"
+                    class="mask-[linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]"
+                >
+                    <div class="flex items-center justify-center px-4 py-2 w-fit">
+                        <NuxtImg :src="item.logo" :alt="item.title" format="webp" quality="40" class="h-10 md:h14"/>
+                        <div class="ml-2 font-bold text-sm md:text-base">{{ item.title }}</div>
+                    </div>
+                </UCarousel>
+            </div>
+
+            <!-- about.projects -->
         </div>
     </template>
 </template>
 
 <script setup lang="ts">
-import AnimatedTooltip from '~/components/ui/AnimatedTooltip.vue'
-
 const { locale, defaultLocale } = useI18n()
 
 const { data: page } = await useAsyncData('index-' + locale.value, async () => {
@@ -63,9 +119,40 @@ const { data: page } = await useAsyncData('index-' + locale.value, async () => {
     return content
 })
 
-if(!page?.value) {
+const { data: about_me } = await useAsyncData('about_me-' + locale.value, async () => {
+    let content = await queryCollection('about_me')
+        .path(`/${locale.value}/about_me`)
+        .first()
+    if (!content && locale.value !== defaultLocale ) {
+        content = await queryCollection('about_me')
+            .path(`/${defaultLocale}/about_me`)
+            .first()
+    }
+    return content
+})
+
+if(!page?.value || !about_me?.value) {
     throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
+
+
+// Carousel
+const carouselRef = ref()
+const restartCarousel = () => {
+    const emblaApi = carouselRef.value?.emblaApi
+
+    if (emblaApi) {
+        const plugins = emblaApi.plugins()
+        const autoScroll = plugins.autoScroll
+        const isRunning = autoScroll.isPlaying()
+        
+        if (autoScroll && !isRunning) {
+            autoScroll.play()
+        }
+    }
+}
+
+
 </script>
 
 <style scoped>
