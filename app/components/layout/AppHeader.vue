@@ -14,7 +14,7 @@
         </template>
 
         <template #body>
-            <UNavigationMenu :items="items" class="" orientation="vertical" />
+            <UNavigationMenu :items="items" orientation="vertical" />
         </template>
     </UHeader>
 </template>
