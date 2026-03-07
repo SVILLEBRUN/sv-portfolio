@@ -120,7 +120,7 @@ about:
         logo: /tools_logo/postgreSQL.png
       - title: Firebase
         logo: /tools_logo/firebase.png
-  projects:
-    title: Mes projets
-    items:
-      - title: P
+projects:
+  title: Mes projets
+  items:
+    - title: SaaS

@@ -68,7 +68,15 @@ export default defineContentConfig({
                         }))
                     })
                 }),
-                // projects: 
+                projects: z.object({
+                    title: z.string().nonempty(),
+                    items: z.array(z.object({
+                        // title: z.string().nonempty(),
+                        // description: z.string().nonempty(),
+                        // image: z.string().nonempty(),
+                        // links: z.array(createLinkSchema())
+                    }))
+                })
                 // contact: 
             })
         }),
