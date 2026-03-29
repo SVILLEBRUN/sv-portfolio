@@ -87,7 +87,7 @@
                         v-slot="{ item }" 
                         :items="page.about.tools.items"
                         loop 
-                        :auto-scroll="{ speed: -1 }"
+                        :auto-scroll="{ speed: -2 }"
                         wheel-gestures
                         :ui="{ item: 'basis-auto' }"
                         class="mask-[linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]"
