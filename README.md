@@ -14,6 +14,11 @@ Start the development server on `http://localhost:3000`:
 npm run dev
 ```
 
+Or on Mac OS, when getting an EINVAL error code try :
+```bash
+TMPDIR=/tmp npm run dev
+```
+
 ## Production
 
 Build the application for production:
