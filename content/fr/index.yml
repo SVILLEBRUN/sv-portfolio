@@ -142,8 +142,9 @@ projects:
           - Présenter mes projets, parcours et compétences
           - Proposer une expérience trilingue (FR / EN / ES)
           - Découvrir les projets avec démos interactives et dépôts GitHub
+      # TODO: Change demo link
       demo_link: http://77.207.128.108:880/
-      # github_link: TODO: GitHub Link & demo link
+      github_link: https://github.com/SVILLEBRUN/sv-portfolio
       is_current_site: true
       image: /projects/portfolio.png
       main_stack: [ Nuxt.js, Typescript, i18n ]
@@ -173,6 +174,7 @@ projects:
           - Vérifier instantanément l'authenticité d'un certificat
           - Consulter et partager ses certifications
           - Garantir la valeur et l'immuabilité des titres délivrés
+      # TODO: Change demo link
       demo_link: http://77.207.128.108:880/academint/
       github_link: https://github.com/SVILLEBRUN/Academint
       image: /projects/academint.png
@@ -203,6 +205,7 @@ projects:
           - Géolocaliser les pièces disponibles à proximité
           - Réserver un bijou et gérer ses créneaux de location
           - Communiquer entre propriétaires et locataires via la messagerie
+      # TODO: Change demo link
       demo_link: http://77.207.128.108:880/airjewels-rails/
       github_link: https://github.com/SVILLEBRUN/airjewels-rails
       image: /projects/airjewels.png
