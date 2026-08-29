@@ -67,7 +67,7 @@ about:
     items: [ Nuxt.js, Express.js, MongoDB, Docker ]
   copy_email:
     title: Me contacter
-    button_default:  Enregistrer mon email
+    button_default:  Copier mon email
     button_success:  Email copié !
   tools:
     title: Mes outils favoris
@@ -88,6 +88,8 @@ about:
         logo: /tools_logo/html.png
       - title: CSS
         logo: /tools_logo/css.png
+      - title: Framer Motion
+        logo: /tools_logo/framer_motion.png
       - title: Figma
         logo: /tools_logo/figma.png
       - title: Node.js
@@ -122,5 +124,128 @@ about:
         logo: /tools_logo/firebase.png
 projects:
   title: Mes projets
+  demo_button_title: Démo
+  private_button_title: Privé
+  modal_title: Détails du projet 
   items:
-    - title: SaaS
+    - title: Sébastien V. - Portfolio
+      description: Mon portfolio de développeur FullStack Nuxt.js & TypeScript
+      detailed_description: |
+        Un portfolio moderne et responsive conçu pour présenter mes compétences, mon expérience et mes projets personnels.
+
+        Il est développé avec Nuxt.js et TypeScript, stylisé avec Tailwind CSS, et intègre des animations fluides grâce à Framer Motion. Le site est entièrement internationalisé avec la prise en charge du français, de l’anglais et de l’espagnol via i18n.
+
+        Ce projet reflète mon approche de la création d’expériences web propres, performantes et agréables à utiliser, tout en offrant un espace central pour découvrir les différents projets que j’ai réalisés au fil des années.
+      key_features:
+        title: Fonctionnalités clés
+        features:
+          - Présenter mes projets, parcours et compétences
+          - Proposer une expérience trilingue (FR / EN / ES)
+          - Découvrir les projets avec démos interactives et dépôts GitHub
+      demo_link: http://77.207.128.108:880/
+      # github_link: TODO: GitHub Link & demo link
+      is_current_site: true
+      image: /projects/portfolio.png
+      main_stack: [ Nuxt.js, Typescript, i18n ]
+      stack:
+        - title: Nuxt.js
+          logo: /tools_logo/nuxt_js.png
+        - title: Typescript
+          logo: /tools_logo/typescript.png
+        - title: Tailwind
+          logo: /tools_logo/tailwind_css.png
+        - title: i18n
+          logo: /tools_logo/i18n.png
+        - title: Framer Motion
+          logo: /tools_logo/framer_motion.png
+    - title: Academint
+      description: Plateforme de formation certifiées via la blockchain
+      detailed_description: |
+        Une plateforme web conçue pour permettre aux établissements de formation d’émettre des certificats numériques fiables, infalsifiables et facilement vérifiables grâce à la blockchain.
+
+        Les étudiants peuvent recevoir et partager leurs certifications, tandis que les recruteurs ou organismes peuvent en vérifier l’authenticité de manière simple et transparente.
+
+        Ce projet a été réalisé en deux semaines dans le cadre du bootcamp Le Wagon, avec Ruby on Rails et des API Web3.
+      key_features:
+        title: Fonctionnalités clés
+        features:
+          - Émettre des diplômes infalsifiables sur la blockchain
+          - Vérifier instantanément l'authenticité d'un certificat
+          - Consulter et partager ses certifications
+          - Garantir la valeur et l'immuabilité des titres délivrés
+      demo_link: http://77.207.128.108:880/academint/
+      github_link: https://github.com/SVILLEBRUN/Academint
+      image: /projects/academint.png
+      main_stack: [ Ruby on Rails, PostgreSQL, Web3 ]
+      stack:
+        - title: Ruby on Rails
+          logo: /tools_logo/ruby_on_rails.png
+        - title: PostgreSQL
+          logo: /tools_logo/postgreSQL.png
+        - title: HTML
+          logo: /tools_logo/html.png
+        - title: CSS
+          logo: /tools_logo/css.png
+        - title: Javascript
+          logo: /tools_logo/javascript.png
+    - title: Airjewels
+      description: Plateforme de location de bijoux inspirée d'Airbnb
+      detailed_description: |
+        Une plateforme web inspirée d’Airbnb, conçue pour permettre aux utilisateurs de louer, réserver et proposer des bijoux à la location.
+
+        Les utilisateurs peuvent publier leurs annonces, ajouter des photos, localiser les bijoux disponibles et gérer leurs réservations. Une messagerie intégrée facilite également les échanges entre propriétaires et locataires.
+
+        Ce projet a été développé en équipe de quatre personnes en quatre jours, dans le cadre du bootcamp Le Wagon.
+      key_features:
+        title: Fonctionnalités clés
+        features:
+          - Publier et louer des bijoux entre particuliers
+          - Géolocaliser les pièces disponibles à proximité
+          - Réserver un bijou et gérer ses créneaux de location
+          - Communiquer entre propriétaires et locataires via la messagerie
+      demo_link: http://77.207.128.108:880/airjewels-rails/
+      github_link: https://github.com/SVILLEBRUN/airjewels-rails
+      image: /projects/airjewels.png
+      main_stack: [ Ruby on Rails, PostgreSQL ]
+      stack:
+        - title: Ruby on Rails
+          logo: /tools_logo/ruby_on_rails.png
+        - title: PostgreSQL
+          logo: /tools_logo/postgreSQL.png
+        - title: HTML
+          logo: /tools_logo/html.png
+        - title: CSS
+          logo: /tools_logo/css.png
+        - title: Javascript
+          logo: /tools_logo/javascript.png
+    - title: Movie DB API
+      description: API de gestion de données cinématographiques
+      detailed_description: |
+        Une API backend flexible conçue pour centraliser, organiser et gérer des données cinématographiques, telles que les films, leurs informations et leurs métadonnées.
+
+        Développée avec Node.js, Express et MongoDB, elle fournit une base solide pour alimenter des applications frontend grâce à des endpoints performants et faciles à intégrer.
+
+        L’API intègre un système de cache et d’indexation afin d’optimiser les performances, ainsi qu’une authentification sécurisée basée sur JSON Web Tokens (JWT) pour protéger l’accès aux ressources
+      key_features:
+        title: Fonctionnalités clés
+        features:
+          - Gérer le catalogue complet de films et leurs métadonnées (CRUD)
+          - Sécuriser l'accès aux ressources par authentification JWT
+          - Optimiser les temps de réponse via le caching et l'indexation sur la base de données
+      # demo_link: http://77.207.128.108:880/movie-db-app/api/movies
+      image: /projects/movie_db_api.jpg
+      github_link: https://github.com/SVILLEBRUN/Movie_db_app
+      main_stack: [ Express.js, MongoDB, JWT ]
+      stack: 
+        - title: Node.js
+          logo: /tools_logo/node_js.png
+        - title: Express.js
+          logo: /tools_logo/express_js.png
+        - title: MongoDB
+          logo: /tools_logo/mongo_db.png
+        - title: JWT
+          logo: /tools_logo/jwt.png
+        - title: Postman
+          logo: /tools_logo/postman.png
+    # - title: Movie DB
+    #   description: Application Frontend pour tester l'API Movie DB

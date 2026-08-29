@@ -1,4 +1,5 @@
 import { defineContentConfig, defineCollection, z } from '@nuxt/content'
+import type { z as zod } from 'zod'
 
 const createBaseSchema = () => z.object({
     title: z.string().nonempty(),
@@ -16,6 +17,27 @@ const createButtonSchema = () => z.object({
     to: z.string().optional(),
     icon: z.string().optional().editor({ input: 'icon' }),
 })
+
+export const projectItemSchema = z.object({
+    title: z.string().nonempty(),
+    description: z.string().nonempty(),
+    detailed_description: z.string().nonempty(),
+    key_features: z.object({
+        title: z.string().nonempty(),
+        features: z.array(z.string().nonempty())
+    }),
+    demo_link: z.string().optional(),
+    github_link: z.string().optional(),
+    is_current_site: z.boolean().optional(),
+    image: z.string().nonempty(),
+    main_stack: z.array(z.string().nonempty()),
+    stack: z.array(z.object({
+        title: z.string().nonempty(),
+        logo: z.string().nonempty()
+    }))
+})
+
+export type ProjectItem = zod.infer<typeof projectItemSchema>
 
 export default defineContentConfig({
     collections: {
@@ -70,12 +92,10 @@ export default defineContentConfig({
                 }),
                 projects: z.object({
                     title: z.string().nonempty(),
-                    items: z.array(z.object({
-                        // title: z.string().nonempty(),
-                        // description: z.string().nonempty(),
-                        // image: z.string().nonempty(),
-                        // links: z.array(createLinkSchema())
-                    }))
+                    demo_button_title: z.string().nonempty(),
+                    private_button_title: z.string().nonempty(),
+                    modal_title: z.string().nonempty(),
+                    items: z.array(projectItemSchema)
                 })
                 // contact: 
             })

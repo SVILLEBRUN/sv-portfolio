@@ -104,9 +104,41 @@
             <!-- page.projects -->
             <div class="pt-22 md:pt-32" id="projects">
                 <div class="text-3xl md:text-5xl font-bold text-center">{{ page.projects.title }}</div>
-                <div class="flex flex-wrap">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
                     <template v-for="(project, project_index) in page.projects.items" :key="project_index">
-                        <ProjectCard :project="project" />
+                        <UModal 
+                            :open="openProjectIndex === project_index"
+                            @update:open="(val) => openProjectIndex = val ? project_index : null"
+                            :ui="{ 
+                                content: 'sm:max-w-2xl md:max-w-3xl w-full p-0 sm:rounded-xl ',
+                            }"
+                        >
+                                <ProjectCard 
+                                    @click="openProjectIndex = project_index"
+                                    :project="project" 
+                                    :demo_button_title="page.projects.demo_button_title" 
+                                    :private_button_title="page.projects.private_button_title" 
+                                />
+
+                                <template #content>
+                                    <div class="relative max-h-[99vh] overflow-y-auto">
+                                        <UButton
+                                            icon="i-lucide-x"
+                                            color="neutral"
+                                            variant="ghost"
+                                            size="sm"
+                                            class="absolute top-3 right-3 z-10 rounded-full bg-background/50 backdrop-blur-md"
+                                            @click="openProjectIndex = null"
+                                        />
+                                        <ProjectCard 
+                                            :project="project" 
+                                            :detailed="true" 
+                                            :demo_button_title="page.projects.demo_button_title" 
+                                            :private_button_title="page.projects.private_button_title" 
+                                        />
+                                    </div>
+                                </template>
+                            </UModal>
                     </template>
                 </div>
             </div>
@@ -162,6 +194,8 @@ const restartCarousel = () => {
     }
 }
 
+// Project Modal
+const openProjectIndex = ref<number | null>(null)
 
 </script>
 
