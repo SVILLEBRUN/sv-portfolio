@@ -121,7 +121,7 @@
                                 />
 
                                 <template #content>
-                                    <div class="relative max-h-[99vh] overflow-y-auto">
+                                    <div class="relative max-h-[95vh] overflow-y-auto">
                                         <UButton
                                             icon="i-lucide-x"
                                             color="neutral"
@@ -134,7 +134,8 @@
                                             :project="project" 
                                             :detailed="true" 
                                             :demo_button_title="page.projects.demo_button_title" 
-                                            :private_button_title="page.projects.private_button_title" 
+                                            :private_button_title="page.projects.private_button_title"
+                                            @close-modal="project.is_current_site ? openProjectIndex = null : ''"
                                         />
                                     </div>
                                 </template>

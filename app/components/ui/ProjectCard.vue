@@ -70,6 +70,7 @@
                 icon="i-tabler-brand-github"
                 size="xl"
                 class="flex-1 justify-center"
+                @click.stop="$emit('close-modal')"
             >
                 GitHub
             </UButton>
@@ -82,20 +83,21 @@
                 icon="i-lucide-play"
                 size="xl"
                 class="flex-1 justify-center"
+                @click.stop="$emit('close-modal')"
             >
                 {{ demo_button_title }}
             </UButton>
         </div>
-        <div v-else class="flex flex-col">
+        <div v-else class="flex flex-col sm:flex-row gap-6 mt-10 w-full">
             <UButton
-                v-if="project.github_link"
-                :href="project.github_link"
+                disabled
                 target="_blank"
                 variant="subtle"
                 color="neutral"
                 icon="i-lucide-lock"
                 size="xl"
                 class="flex-1 justify-center"
+                @click.stop="$emit('close-modal')"
             >
                 {{ private_button_title }}
             </UButton>
@@ -113,6 +115,10 @@ const props = defineProps<{
     demo_button_title: string,
     private_button_title: string,
     detailed?: boolean,
+}>()
+
+defineEmits<{
+    (e: 'close-modal'): void
 }>()
 
 </script>
