@@ -65,8 +65,9 @@
                             </div>
     
                         </div>
-                        <div class="flex-1 border border-default rounded-2xl py-4 px-4 md:py-10 md:px-8">
-                            <div class="md:text-2xl text-xl font-bold">{{ page.about.copy_email.title }}</div>
+                        <div class="flex-1 flex flex-col border border-default rounded-2xl py-4 px-4 md:py-10 md:px-8">
+                            <div class="md:text-2xl text-xl font-bold mb-2">{{ page.about.copy_email.title }}</div>
+                            <div class="text-toned mb-2"><span class="font-bold">Email : </span><a href="mailto:sebastien.villebrun@gmail.com" class="hover:text-primary">sebastien.villebrun@gmail.com</a></div>
                             <div class="flex items-center justify-center h-full">
                                 <EmailButton 
                                     :email="'sebastien.villebrun@gmail.com'" 
@@ -93,7 +94,7 @@
                         class="mask-[linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]"
                     >
                         <div class="flex items-center justify-center px-4 py-2 w-fit">
-                            <NuxtImg :src="item.logo" :alt="item.title" format="webp" quality="40" class="h-10 md:h14"/>
+                            <NuxtImg :src="item.logo" :alt="item.title" format="webp" quality="40" class="h-10 md:h-12"/>
                             <div class="ml-2 font-bold text-sm md:text-base">{{ item.title }}</div>
                         </div>
                     </UCarousel>

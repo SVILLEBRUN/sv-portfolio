@@ -1,6 +1,6 @@
 <template>
     <div class="relative w-full">
-        <button @click="copyEmail" class="relative inline-flex h-12 w-full  overflow-hidden rounded-lg p-px focus:outline-none z-10">
+        <button @click="copyEmail" class="relative inline-flex h-12 w-full overflow-hidden rounded-lg p-px focus:outline-none z-10">
             <span class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,var(--ui-secondary)_0%,var(--ui-primary)_50%,var(--ui-secondary)_100%)]">
     
             </span>
