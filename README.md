@@ -93,6 +93,6 @@ npm run preview
 
 ### 5. 📄 License
 
-This project is released under the [MIT License](https://github.com/your-username/your-repo-name/blob/main/LICENSE).
+This project is released under the [MIT License](https://github.com/SVILLEBRUN/sv-portfolio/blob/main/LICENSE).
 
 ---
