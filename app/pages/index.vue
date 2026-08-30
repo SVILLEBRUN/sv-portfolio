@@ -117,8 +117,6 @@
                                 <ProjectCard 
                                     @click="openProjectIndex = project_index"
                                     :project="project" 
-                                    :demo_button_title="page.projects.demo_button_title" 
-                                    :private_button_title="page.projects.private_button_title" 
                                 />
 
                                 <template #content>
@@ -134,8 +132,6 @@
                                         <ProjectCard 
                                             :project="project" 
                                             :detailed="true" 
-                                            :demo_button_title="page.projects.demo_button_title" 
-                                            :private_button_title="page.projects.private_button_title"
                                             @close-modal="project.is_current_site ? openProjectIndex = null : ''"
                                         />
                                     </div>

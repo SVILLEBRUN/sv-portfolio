@@ -143,8 +143,12 @@ projects:
           - Proposer une expérience trilingue (FR / EN / ES)
           - Découvrir les projets avec démos interactives et dépôts GitHub
       # TODO: Change demo link
-      demo_link: http://77.207.128.108:880/
-      github_link: https://github.com/SVILLEBRUN/sv-portfolio
+      github_button: 
+        label: GitHub
+        to: https://github.com/SVILLEBRUN/sv-portfolio
+      demo_button:
+        label: Démo
+        to: http://77.207.128.108:880/
       is_current_site: true
       image: /projects/portfolio.png
       main_stack: [ Nuxt.js, Typescript, i18n ]
@@ -175,8 +179,12 @@ projects:
           - Consulter et partager ses certifications
           - Garantir la valeur et l'immuabilité des titres délivrés
       # TODO: Change demo link
-      demo_link: http://77.207.128.108:880/academint/
-      github_link: https://github.com/SVILLEBRUN/Academint
+      github_button: 
+        label: GitHub
+        to: https://github.com/SVILLEBRUN/Academint
+      demo_button:
+        label: Démo
+        to: http://77.207.128.108:880/academint/
       image: /projects/academint.png
       main_stack: [ Ruby on Rails, PostgreSQL, Web3 ]
       stack:
@@ -206,8 +214,12 @@ projects:
           - Réserver un bijou et gérer ses créneaux de location
           - Communiquer entre propriétaires et locataires via la messagerie
       # TODO: Change demo link
-      demo_link: http://77.207.128.108:880/airjewels-rails/
-      github_link: https://github.com/SVILLEBRUN/airjewels-rails
+      github_button: 
+        label: GitHub
+        to: https://github.com/SVILLEBRUN/airjewels-rails
+      demo_button:
+        label: Démo
+        to: http://77.207.128.108:880/airjewels-rails/
       image: /projects/airjewels.png
       main_stack: [ Ruby on Rails, PostgreSQL ]
       stack:
@@ -235,9 +247,13 @@ projects:
           - Gérer le catalogue complet de films et leurs métadonnées (CRUD)
           - Sécuriser l'accès aux ressources par authentification JWT
           - Optimiser les temps de réponse via le caching et l'indexation sur la base de données
-      # demo_link: http://77.207.128.108:880/movie-db-app/api/movies
+      # demo_button:
+      #   label: Démo
+      #   to: http://77.207.128.108:880/movie-db-app/api/movies
+      github_button: 
+        label: GitHub
+        to: https://github.com/SVILLEBRUN/Movie_db_app
       image: /projects/movie_db_api.jpg
-      github_link: https://github.com/SVILLEBRUN/Movie_db_app
       main_stack: [ Express.js, MongoDB, JWT ]
       stack: 
         - title: Node.js
@@ -256,13 +272,21 @@ contact:
   title: Travaillons <span class="text-gradient">Ensemble</span>
   subtitle: Contactez-moi
   description: "Un projet en tête, une question ou une opportunité à partager ? Écrivez-moi, je vous répondrai dans les plus brefs delais."
-  email: sebastien.villebrun@gmail.com
-  linkedin: 
-    link: https://www.linkedin.com/in/sébastien-villebrun-dev-fs/
-    description: Connectons-nous
-  github: 
-    link: https://github.com/SVILLEBRUN
-    description: Voir mes projets
+  email_button:
+    label: Email
+    to: mailto:sebastien.villebrun@gmail.com
+    tooltip: sebastien.villebrun@gmail.com
+    icon: i-lucide-mail
+  linkedin_button:
+    label: LinkedIn
+    to: https://www.linkedin.com/in/sébastien-villebrun-dev-fs/
+    tooltip: Connectons-nous
+    icon: i-tabler-brand-linkedin
+  github_button:
+    label: GitHub
+    to: https://github.com/SVILLEBRUN
+    tooltip: Voir mes projets
+    icon: i-tabler-brand-github
   form: 
     fullname:
       label: Nom complet

@@ -10,12 +10,14 @@ const createLinkSchema = () => z.object({
     label: z.string().optional(),
     to: z.string().nonempty(),
     icon: z.string().optional().editor({ input: 'icon' }),
+    tooltip: z.string().optional()
 })
 
 const createButtonSchema = () => z.object({
-    label: z.string().nonempty(),
+    label: z.string().optional(),
     to: z.string().optional(),
     icon: z.string().optional().editor({ input: 'icon' }),
+    tooltip: z.string().optional()
 })
 
 export const projectItemSchema = z.object({
@@ -26,8 +28,9 @@ export const projectItemSchema = z.object({
         title: z.string().nonempty(),
         features: z.array(z.string().nonempty())
     }),
-    demo_link: z.string().optional(),
-    github_link: z.string().optional(),
+    github_button: createButtonSchema().optional(),
+    demo_button: createButtonSchema().optional(),
+    private_button: createButtonSchema().optional(),
     is_current_site: z.boolean().optional(),
     image: z.string().nonempty(),
     main_stack: z.array(z.string().nonempty()),
@@ -122,8 +125,6 @@ export default defineContentConfig({
                 }),
                 projects: z.object({
                     title: z.string().nonempty(),
-                    demo_button_title: z.string().nonempty(),
-                    private_button_title: z.string().nonempty(),
                     modal_title: z.string().nonempty(),
                     items: z.array(projectItemSchema)
                 }),
@@ -131,15 +132,9 @@ export default defineContentConfig({
                     title: z.string().nonempty(),
                     subtitle: z.string().nonempty(),
                     description: z.string().nonempty(),
-                    email: z.string().nonempty(),
-                    linkedin: z.object({
-                        link: z.string().nonempty(),
-                        description: z.string().nonempty()
-                    }),
-                    github: z.object({
-                        link: z.string().nonempty(),
-                        description: z.string().nonempty()
-                    }),
+                    email_button: createButtonSchema(),
+                    linkedin_button: createButtonSchema(),
+                    github_button: createButtonSchema(),
                     form: contactFormSchema
                 })
             })

@@ -58,12 +58,12 @@
         </template>
 
         <div 
-            v-if="project.github_link || project.demo_link"
+            v-if="project.github_button || project.demo_button"
             class="flex flex-col sm:flex-row gap-6 mt-10 w-full"
         >
             <UButton
-                v-if="project.github_link"
-                :href="project.github_link"
+                v-if=" project.github_button"
+                :href=" project.github_button.to"
                 target="_blank"
                 variant="subtle"
                 color="neutral"
@@ -72,11 +72,11 @@
                 class="flex-1 justify-center"
                 @click.stop="$emit('close-modal')"
             >
-                GitHub
+                {{ project.github_button?.label }}
             </UButton>
             <UButton
-                v-if="project.demo_link"
-                :href="!project.is_current_site ? project.demo_link : '#'"
+                v-if="project.demo_button"
+                :href="!project.is_current_site ? project.demo_button.to : '#'"
                 :target="project.is_current_site ? '_self' : '_blank'"
                 variant="soft"
                 color="primary"
@@ -85,7 +85,7 @@
                 class="flex-1 justify-center"
                 @click.stop="$emit('close-modal')"
             >
-                {{ demo_button_title }}
+                {{ project.demo_button?.label }}
             </UButton>
         </div>
         <div v-else class="flex flex-col sm:flex-row gap-6 mt-10 w-full">
@@ -99,7 +99,7 @@
                 class="flex-1 justify-center"
                 @click.stop="$emit('close-modal')"
             >
-                {{ private_button_title }}
+                {{ project.private_button?.label }}
             </UButton>
         </div>
 
@@ -112,8 +112,6 @@ import type { ProjectItem } from '@@/content.config'
 
 const props = defineProps<{
     project: ProjectItem,
-    demo_button_title: string,
-    private_button_title: string,
     detailed?: boolean,
 }>()
 
