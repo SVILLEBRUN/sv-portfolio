@@ -15,7 +15,7 @@
                         </div>
     
                         <div class="relative flex z-10 h-full w-full items-center rounded-4xl border border-default p-2 bg-default">
-                            <NuxtImg :src="skill.image" :alt="skill.title" height="80" format="webp" quality="80" class="hidden lg:block"/>
+                            <NuxtImg :src="skill.image" :alt="skill.title" height="80" format="webp" quality="80" class="hidden lg:block pl-2 py-2"/>
                             <div class="ml-2 text-center w-full h-full">
                                 <div class="text-lg font-bold mb-2">{{ skill.title }}</div>
                                 <div class="flex flex-wrap justify-center gap-2">
