@@ -73,8 +73,6 @@ const { data: footer } = await useAsyncData('footer-' + locale.value, async () =
     return content
 })
 
-console.log(footer.value)
-
 if(!footer.value) {
     throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
