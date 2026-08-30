@@ -1,6 +1,6 @@
 <template>
     <UFooter>
-        <div>
+        <div class="pt-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 tracking-wide pb-8">
                 <div>
                     <div class="text-xl font-bold">Sébastien VILLEBRUN</div>
