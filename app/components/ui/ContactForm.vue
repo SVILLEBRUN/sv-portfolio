@@ -78,7 +78,7 @@
                 color="primary"
                 icon="i-heroicons-paper-airplane"
                 :loading="isSubmitting"
-                class="rounded-full py-3"
+                class="rounded-full py-3 cursor-pointer"
             >
                 {{ text_content.submit.label }}
             </UButton>
