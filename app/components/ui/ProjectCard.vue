@@ -120,11 +120,3 @@ defineEmits<{
 }>()
 
 </script>
-
-<style scoped>
-.glass-card:hover {
-  box-shadow:   color-mix(in srgb, var(--color-primary-500) 30%, transparent) 0 0 0 1px,
-                color-mix(in srgb, var(--color-primary-500) 30%, transparent) 0 0 30px;
-
-}
-</style>

@@ -157,8 +157,59 @@
                     <div class="text-4xl md:text-6xl font-semibold mb-2 sm:mb-4 md:mb-6" v-html="page.contact.title"></div>
                     
                     <div class="text-muted max-w-3xl mx-auto md:text-lg text-sm mb-10 sm:mb-12 md:mb-16 lg:mb-20 tracking-wide">{{ page.contact.description }}</div>
-                    
-                    <ContactForm :text_content="page.contact.form" />
+                    <div class="max-w-4xl mx-auto">
+                        <ContactForm :text_content="page.contact.form" />
+
+                        <div class="grid grid-cols-1 lg:grid-cols-3 mt-12 gap-6">
+                            <a 
+                                class="border-default border rounded-3xl p-4 hover:scale-105 transition-transform duration-300 glass-card cursor-pointer"
+                                :href="page.contact.email_button.to"
+                                target="_blank"
+                            >
+                                <UButton 
+                                    size="xl" 
+                                    :icon="page.contact.email_button.icon" 
+                                    variant="soft" 
+                                    class="pointer-events-none rounded-full p-4"
+                                    color="secondary"
+                                />
+                                <div class="font-bold mt-2">{{ page.contact.email_button.label }}</div>
+                                <div class="text-muted text-sm mt-2">{{ page.contact.email_button.tooltip }}</div>
+                            </a>
+
+                            <a 
+                                class="border-default border rounded-3xl p-4 hover:scale-105 transition-transform duration-300 glass-card cursor-pointer"
+                                :href="page.contact.linkedin_button.to"
+                                target="_blank"
+                            >
+                                <UButton 
+                                    size="xl" 
+                                    :icon="page.contact.linkedin_button.icon" 
+                                    variant="soft" 
+                                    class="pointer-events-none rounded-full p-4"
+                                    color="info"
+                                />
+                                <div class="font-bold mt-2">{{ page.contact.linkedin_button.label }}</div>
+                                <div class="text-muted text-sm mt-2">{{ page.contact.linkedin_button.tooltip }}</div>
+                            </a>
+
+                            <a 
+                                class="border-default border rounded-3xl p-4 hover:scale-105 transition-transform duration-300 glass-card cursor-pointer"
+                                :href="page.contact.github_button.to"
+                                target="_blank"
+                            >
+                                <UButton 
+                                    size="xl" 
+                                    :icon="page.contact.github_button.icon" 
+                                    variant="soft" 
+                                    class="pointer-events-none rounded-full p-4"
+                                    color="neutral"
+                                />
+                                <div class="font-bold mt-2">{{ page.contact.github_button.label }}</div>
+                                <div class="text-muted text-sm mt-2">{{ page.contact.github_button.tooltip }}</div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

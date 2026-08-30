@@ -1,5 +1,5 @@
 <template>
-    <UCard class="max-w-4xl mx-auto">
+    <UCard class="rounded-3xl p-3">
         <UForm :schema="schema" :state="state" class="space-y-8" @submit="onSubmit">
             
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
