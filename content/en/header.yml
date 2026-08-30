@@ -1,7 +1,7 @@
 links:
-  - label: My Personality
+  - label: About me
     to: '#about'
   - label: Projects
     to: '#projects'
-  - label: Contact me
+  - label: Get in touch
     to: '#contact'

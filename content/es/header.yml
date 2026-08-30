@@ -1,0 +1,7 @@
+links:
+  - label: Sobre mí
+    to: '#about'
+  - label: Proyectos
+    to: '#projects'
+  - label: Contáctame
+    to: '#contact'
