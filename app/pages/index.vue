@@ -144,6 +144,27 @@
                     </template>
                 </div>
             </div>
+
+
+            <!-- page.contact -->
+            <div class="pt-12 md:pt-22 mt-4" id="contact">
+                <div class="text-center">
+                    <UButton 
+                        icon="i-lucide-mail" 
+                        variant="subtle"
+                        :ui="{ base: 'text-sm sm:text-base md:text-lg px-5 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3' }"
+                        class="mb-6 md:mb:8 rounded-full"
+                    >
+                        {{ page.contact.subtitle }}
+                    </UButton>
+                    
+                    <div class="text-4xl md:text-6xl font-bold mb-2 sm:mb-4 md:mb-6" v-html="page.contact.title"></div>
+                    
+                    <div class="text-muted max-w-3xl mx-auto md:text-lg text-sm mb-10 sm:mb-12 md:mb-16 lg:mb-20 font-medium tracking-wider">{{ page.contact.description }}</div>
+                    
+                    <ContactForm :text_content="page.contact.form" />
+                </div>
+            </div>
         </div>
     </template>
 </template>

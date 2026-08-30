@@ -6,7 +6,7 @@ hero:
   title: Développeur <span class="text-gradient">FullStack</span>
   description: Je conçois et développe des applications Saas performantes, scalables et centrées sur l'utilisateur.
 about:
-  title: Présentation
+  title: À propos de moi
   skills:
     - title: Développeur Frontend
       image: /frontend.png
@@ -252,3 +252,35 @@ projects:
           logo: /tools_logo/postman.png
     # - title: Movie DB
     #   description: Application Frontend pour tester l'API Movie DB
+contact:
+  title: Travaillons <span class="text-gradient">Ensemble</span>
+  subtitle: Contactez-moi
+  description: "Un projet en tête, une question ou une opportunité à partager ? Écrivez-moi, je vous répondrai dans les plus brefs delais."
+  email: sebastien.villebrun@gmail.com
+  linkedin: 
+    link: https://www.linkedin.com/in/s%C3%A9bastien-villebrun-dev-fs/
+    description: Connectons-nous
+  github: 
+    link: https://github.com/SVILLEBRUN
+    description: Voir mes projets
+  form: 
+    fullname:
+      label: Nom complet
+      placeholder: "Jean Dupont"
+      alert: Veuillez renseigner votre nom complet.
+    email:
+      label: Email
+      placeholder: "jean.dupont@exemple.com"
+      alert: Veuillez renseigner une adresse e-mail valide.
+    subject:
+      label: Sujet
+      placeholder: "Ex. : Proposition de collaboration"
+      alert: Veuillez indiquer le sujet de votre message.
+    message:
+      label: Message
+      placeholder: "Décrivez votre projet ou votre demande..."
+      alert: Veuillez rédiger votre message.
+    submit:
+      label: Envoyer le message
+      alert: Une erreur est survenue lors de l’envoi. Veuillez réessayer ultérieurement.
+      success: Votre message a bien été envoyé. Merci de m’avoir contacté !

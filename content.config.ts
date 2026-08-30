@@ -39,6 +39,36 @@ export const projectItemSchema = z.object({
 
 export type ProjectItem = zod.infer<typeof projectItemSchema>
 
+export const contactFormSchema = z.object({
+    fullname: z.object({
+        label: z.string().nonempty(),
+        placeholder: z.string().nonempty(),
+        alert: z.string().nonempty()
+    }),
+    email: z.object({
+        label: z.string().nonempty(),
+        placeholder: z.string().nonempty(),
+        alert: z.string().nonempty()
+    }),
+    subject: z.object({
+        label: z.string().nonempty(),
+        placeholder: z.string().nonempty(),
+        alert: z.string().nonempty()
+    }),
+    message: z.object({
+        label: z.string().nonempty(),
+        placeholder: z.string().nonempty(),
+        alert: z.string().nonempty()
+    }),
+    submit: z.object({
+        label: z.string().nonempty(),
+        alert: z.string().nonempty(),
+        success: z.string().nonempty()
+    })
+})
+
+export type ContactForm = zod.infer<typeof contactFormSchema>
+
 export default defineContentConfig({
     collections: {
         header: defineCollection({
@@ -96,8 +126,22 @@ export default defineContentConfig({
                     private_button_title: z.string().nonempty(),
                     modal_title: z.string().nonempty(),
                     items: z.array(projectItemSchema)
+                }),
+                contact: z.object({
+                    title: z.string().nonempty(),
+                    subtitle: z.string().nonempty(),
+                    description: z.string().nonempty(),
+                    email: z.string().nonempty(),
+                    linkedin: z.object({
+                        link: z.string().nonempty(),
+                        description: z.string().nonempty()
+                    }),
+                    github: z.object({
+                        link: z.string().nonempty(),
+                        description: z.string().nonempty()
+                    }),
+                    form: contactFormSchema
                 })
-                // contact: 
             })
         }),
         about_me: defineCollection({
