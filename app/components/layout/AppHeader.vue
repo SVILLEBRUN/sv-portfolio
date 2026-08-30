@@ -2,7 +2,7 @@
     <UHeader id="header" :ui="{ root: isScrolled ? 'dark:bg-black/75' : '' }">
         <template #left>
             <NuxtLink to="/">
-                <div class="tracking-tighter font-extrabold text-xl">
+                <div class="tracking-tighter font-bold text-xl">
                     Sébastien<span class="text-primary">.V</span>
                 </div>
             </NuxtLink>
