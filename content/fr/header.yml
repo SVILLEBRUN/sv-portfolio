@@ -1,5 +1,5 @@
 links:
-  - label: Ma personnalité
+  - label: À propos de moi
     to: '#about'
   - label: Projets
     to: '#projects'
