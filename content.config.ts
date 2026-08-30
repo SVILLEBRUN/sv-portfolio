@@ -7,7 +7,7 @@ const createBaseSchema = () => z.object({
 })
 
 const createLinkSchema = () => z.object({
-    label: z.string().nonempty(),
+    label: z.string().optional(),
     to: z.string().nonempty(),
     icon: z.string().optional().editor({ input: 'icon' }),
 })
@@ -149,6 +149,24 @@ export default defineContentConfig({
             source: '**/about_me.md',
             schema: z.object({
                 title: z.string().nonempty(),
+            })
+        }),
+        footer: defineCollection({
+            type: 'page',
+            source: '**/footer.yml',
+            schema: z.object({
+                description: z.string().nonempty(),
+                social_media_links: z.array(createLinkSchema()),
+                nav_links_title: z.string().nonempty(),
+                nav_links: z.array(createLinkSchema()),
+                skills_title: z.string().nonempty(),
+                skills: z.array(z.string()).min(1),
+                contact: z.object({
+                    title: z.string().nonempty(),
+                    adress: z.string().nonempty(),
+                    email: z.string().nonempty()
+                }),
+                copyright: z.string().nonempty()
             })
         })
     }

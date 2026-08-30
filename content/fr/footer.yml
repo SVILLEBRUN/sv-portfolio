@@ -1,0 +1,34 @@
+description: Développeut Full-Stack passionné par l'innovation et les nouvelles technologies.
+social_media_links:
+  - lable: GitHub
+    to: https://github.com/SVILLEBRUN
+    icon: i-tabler-brand-github
+  - lable: LinkedIn
+    to: https://www.linkedin.com/in/sébastien-villebrun-dev-fs/
+    icon: i-tabler-brand-linkedin
+  - lable: E-mail
+    to: mailto:sebastien.villebrun@gmail.com
+    icon: i-lucide-mail
+nav_links_title: Navigation
+nav_links: 
+  - label: Accueil
+    to: /
+  - label: À propos de moi
+    to: '#about'
+  - label: Projets
+    to: '#projects'
+  - label: Contact
+    to: '#contact'
+skills_title: Technologies
+skills: [
+  "Vue.js & Nuxt.js",
+  "Node.js & Ruby on Rails",
+  "Docker & Nginx",
+  "Typescript",
+  "Framer Motion & Tailwind CSS",
+]
+contact:
+  title: Contact
+  adress: "Paris, France"
+  email: sebastien.villebrun@gmail.com
+copyright: ©2026 Sébastien Villebrun. Tous droits reservés.

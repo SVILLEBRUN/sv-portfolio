@@ -147,7 +147,7 @@
 
 
             <!-- page.contact -->
-            <div class="pt-12 md:pt-22 mt-4" id="contact">
+            <div class="pt-12 md:pt-22 pb-8 md:pb-18 mt-4" id="contact">
                 <div class="text-center">
                     <UButton 
                         icon="i-lucide-mail" 
