@@ -67,6 +67,11 @@ export const contactFormSchema = z.object({
         label: z.string().nonempty(),
         alert: z.string().nonempty(),
         success: z.string().nonempty()
+    }),
+    draft: z.object({
+        label: z.string().nonempty(),
+        short_label: z.string().nonempty(),
+        restore: z.string().nonempty()
     })
 })
 

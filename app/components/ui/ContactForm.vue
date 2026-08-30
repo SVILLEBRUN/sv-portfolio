@@ -1,7 +1,29 @@
 <template>
     <UCard class="rounded-3xl p-3">
         <UForm :schema="schema" :state="state" class="space-y-8" @submit="onSubmit">
-            
+            <UAlert
+                v-if="hasDraftToRestore"
+                color="success"
+                variant="subtle"
+                icon="i-lucide-file-text"
+                :ui="{
+                    icon: 'size-4 sm:size-8',
+                }"
+                close
+                @update:open="dismissDraft"
+                class="items-center gap-4 sm:gap-8"
+            >   
+                <template #title>
+                    <div class="flex items-center justify-between gap-2 sm:gap-4">
+                        <div class="hidden sm:block">{{ text_content.draft.label }}</div>
+                        <div class="block sm:hidden">{{ text_content.draft.short_label }}</div>
+                        <UButton size="sm" color="success" variant="soft" @click="restoreDraft">
+                            {{ text_content.draft.restore }}
+                        </UButton> 
+                    </div>
+                </template>
+            </UAlert>
+
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <UFormField :label="text_content.fullname.label" name="fullname" class="text-base">
                     <template #label>
@@ -104,6 +126,46 @@ const state = reactive({
     message: ''
 })
 
+// Draft management
+const hasDraftToRestore = ref(false)
+const savedDraft = ref<{ subject?: string; message?: string } | null>(null)
+
+onMounted(() => {
+    const rawData = localStorage.getItem('contact_form_draft')
+    if (!rawData) return
+
+    try {
+        const parsed = JSON.parse(rawData)
+
+        // 1. Always restore fullname and email
+        if (parsed.fullname) state.fullname = parsed.fullname
+        if (parsed.email) state.email = parsed.email
+
+        // 2. Restore draft if subject or message is present
+        if (parsed.subject || parsed.message) {
+            savedDraft.value = {
+                subject: parsed.subject || '',
+                message: parsed.message || ''
+            }
+            hasDraftToRestore.value = true
+        }
+    } catch (e) {
+        console.error('Erreur lors de la récupération du brouillon', e)
+    }
+})
+
+function restoreDraft() {
+    if (savedDraft.value) {
+        state.subject = savedDraft.value.subject || ''
+        state.message = savedDraft.value.message || ''
+        hasDraftToRestore.value = false
+    }
+}
+
+function dismissDraft() {
+    hasDraftToRestore.value = false
+}
+
 const schema = z.object({
     fullname: z.string().min(1, props.text_content.fullname.alert),
     email: z.string().email(props.text_content.email.alert),
@@ -133,10 +195,17 @@ async function onSubmit(event: FormSubmitEvent<FormSchema>) {
             color: 'success',
             icon: 'i-lucide-mail'
         })
+
+        localStorage.setItem('contact_form_draft', JSON.stringify({
+            fullname: event.data.fullname,
+            email: event.data.email
+        }))
         
-        Object.assign(state, { fullname: '', email: '', subject: '', message: '' })
+        Object.assign(state, { subject: '', message: '' })
     } catch (error) {
-            toast.add({
+        localStorage.setItem('contact_form_draft', JSON.stringify(event.data))
+
+        toast.add({
             title: props.text_content.submit.alert,
             color: 'error',
             icon: 'i-lucide-alert-triangle'
