@@ -46,11 +46,11 @@
     
                 <!-- About_me -->
                 <div class="mt-12 md:mt-22 grid grid-cols-1 md:grid-cols-5 gap-4">
-                    <div class="md:col-span-3 border border-default rounded-2xl py-4 px-8 md:py-10 md:px-16 text-sm/6">
+                    <div class="md:col-span-3 border border-default rounded-2xl py-4 px-8 lg:py-10 lg:px-16 text-sm/6">
                         <ContentRenderer :value="about_me" class="text-sm" :prose="true" />
                     </div>
                     <div class="md:col-span-2 flex flex-col h-full gap-4">
-                        <div class="flex-1 border border-default rounded-2xl py-4 px-4 md:py-10 md:px-8">
+                        <div class="flex-1 border border-default rounded-2xl py-4 px-4 lg:py-10 lg:px-8">
                             <div class="md:text-2xl text-xl font-bold mb-4">{{ page.about.stack.title }}</div>
                             <div class="flex flex-wrap gap-4">
                                 <UButton 
@@ -65,9 +65,9 @@
                             </div>
     
                         </div>
-                        <div class="flex-1 flex flex-col border border-default rounded-2xl py-4 px-4 md:py-10 md:px-8">
+                        <div class="flex-1 flex flex-col border border-default rounded-2xl py-4 px-4 lg:py-10 lg:px-8">
                             <div class="md:text-2xl text-xl font-bold mb-2">{{ page.about.copy_email.title }}</div>
-                            <div class="text-toned mb-2"><span class="font-bold">Email : </span><a href="mailto:sebastien.villebrun@gmail.com" class="hover:text-primary">sebastien.villebrun@gmail.com</a></div>
+                            <div class="text-toned mb-2 text-sm lg:text-base"><span class="font-bold">Email : </span><a href="mailto:sebastien.villebrun@gmail.com" class="hover:text-primary">sebastien.villebrun@gmail.com</a></div>
                             <div class="flex items-center justify-center h-full">
                                 <EmailButton 
                                     :email="'sebastien.villebrun@gmail.com'" 
