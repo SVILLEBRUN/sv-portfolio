@@ -23,7 +23,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Build and push proxy image
+      - name: Build and push sv-portfolio image
         run: |
           docker buildx build ./ \
             --platform linux/arm64 \
