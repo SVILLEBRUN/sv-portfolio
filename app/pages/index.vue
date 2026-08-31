@@ -220,29 +220,41 @@
 <script setup lang="ts">
 const { locale, defaultLocale } = useI18n()
 
-const { data: page } = await useAsyncData('index-' + locale.value, async () => {
-    let content = await queryCollection('index')
-        .path(`/${locale.value}`)
-        .first()
-    if (!content && locale.value !== defaultLocale ) {
-        content = await queryCollection('index')
-            .path(`/${defaultLocale}`)
+const { data: page } = await useAsyncData(
+    () => `index-${locale.value}`,
+    async () => {
+        let content = await queryCollection('index')
+            .path(`/${locale.value}`)
             .first()
-    }
-    return content
-})
+            
+        // comparaison directe sans .value sur defaultLocale
+        if (!content && locale.value !== defaultLocale) {
+            content = await queryCollection('index')
+                .path(`/${defaultLocale}`)
+                .first()
+        }
+        return content
+    },
+    { watch: [locale] }
+)
 
-const { data: about_me } = await useAsyncData('about_me-' + locale.value, async () => {
-    let content = await queryCollection('about_me')
-        .path(`/${locale.value}/about_me`)
-        .first()
-    if (!content && locale.value !== defaultLocale ) {
-        content = await queryCollection('about_me')
-            .path(`/${defaultLocale}/about_me`)
+const { data: about_me } = await useAsyncData(
+    () => `about_me-${locale.value}`,
+    async () => {
+        let content = await queryCollection('about_me')
+            .path(`/${locale.value}/about_me`)
             .first()
-    }
-    return content
-})
+            
+        // comparaison directe sans .value sur defaultLocale
+        if (!content && locale.value !== defaultLocale) {
+            content = await queryCollection('about_me')
+                .path(`/${defaultLocale}/about_me`)
+                .first()
+        }
+        return content
+    },
+    { watch: [locale] }
+)
 
 if(!page?.value || !about_me?.value) {
     throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })

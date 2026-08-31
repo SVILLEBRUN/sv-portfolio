@@ -61,17 +61,21 @@
 
 <script setup lang="ts">
 const { locale, defaultLocale } = useI18n()
-const { data: footer } = await useAsyncData('footer-' + locale.value, async () => {
-    let content = await queryCollection('footer')
-        .path(`/${locale.value}/footer`)
-        .first()
-    if (!content && locale.value !== defaultLocale ) {
-        content = await queryCollection('footer')
-            .path('/fr/footer')
+const { data: footer } = await useAsyncData(
+    () => `footer-${locale.value}`,
+    async () => {
+        let content = await queryCollection('footer')
+            .path(`/${locale.value}/footer`)
             .first()
-    }
-    return content
-})
+        if (!content && locale.value !== defaultLocale) {
+            content = await queryCollection('footer')
+                .path(`/${defaultLocale}/footer`)
+                .first()
+        }
+        return content
+    },
+    { watch: [locale] }
+)
 
 if(!footer.value) {
     throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })

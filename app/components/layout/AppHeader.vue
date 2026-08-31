@@ -11,6 +11,12 @@
         <template #right>
             <UNavigationMenu :items="items" variant="link" class="hidden lg:block"/>
             <UColorModeButton class="cursor-pointer" />
+            <ULocaleSelect
+                :model-value="locale"
+                :locales="Object.values([fr, en, es])"
+                @update:model-value="setLocale($event as any)"
+                class="hidden lg:block"
+            />
         </template>
 
         <template #body>
@@ -21,19 +27,24 @@
 
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
+import { en, es, fr } from '@nuxt/ui/locale'
 
-const { locale, defaultLocale } = useI18n()
-const { data: header } = await useAsyncData('header-' + locale.value, async () => {
-    let content = await queryCollection('header')
-        .path(`/${locale.value}/header`)
-        .first()
-    if (!content && locale.value !== defaultLocale ) {
-        content = await queryCollection('header')
-            .path('/fr/header')
+const { locale, defaultLocale, setLocale } = useI18n()
+const { data: header } = await useAsyncData(
+    () => `header-${locale.value}`,
+    async () => {
+        let content = await queryCollection('header')
+            .path(`/${locale.value}/header`)
             .first()
-    }
-    return content
-})
+        if (!content && locale.value !== defaultLocale) {
+            content = await queryCollection('header')
+                .path(`/${defaultLocale}/header`)
+                .first()
+        }
+        return content
+    },
+    { watch: [locale] }
+)
 
 if(!header.value) {
     throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
@@ -66,6 +77,15 @@ const items = computed<NavigationMenuItem[]>(() => [
         label: header.value?.links[2]?.label,
         to: header.value?.links[2]?.to,
         active: activeHeadings.value.includes('contact') && !activeHeadings.value.includes('projects')
+    },
+    {
+        label: 'Langue',
+        icon: 'i-lucide-globe',
+        children: [
+            { label: '🇫🇷 Français', onSelect: () => setLocale('fr'), active: locale.value === 'fr' },
+            { label: '🇬🇧 English', onSelect: () => setLocale('en'), active: locale.value === 'en' },
+            { label: '🇪🇸 Español', onSelect: () => setLocale('es'), active: locale.value === 'es'},
+        ]
     }
 ])
 

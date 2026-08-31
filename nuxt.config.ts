@@ -23,11 +23,12 @@ export default defineNuxtConfig({
     i18n: {
         locales: [
             { code: 'fr', name: 'Français', language: 'fr-FR', dir: 'ltr' },
-            { code: 'en', name: 'English', language: 'en-US', dir: 'ltr' }
+            { code: 'en', name: 'English', language: 'en-US', dir: 'ltr' },
+            { code: 'es', name: 'Español', language: 'es-ES', dir: 'ltr' }
         ],
         strategy: 'prefix_and_default',
         defaultLocale: 'fr',
-        detectBrowserLanguage: { useCookie: true, fallbackLocale: 'fr', cookieKey: 'i18n_redirected' }
+        detectBrowserLanguage: { useCookie: true, fallbackLocale: 'fr', cookieKey: 'i18n_redirected', redirectOn: 'root' }
     },
     runtimeConfig: {
         public: {
