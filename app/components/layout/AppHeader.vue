@@ -81,6 +81,7 @@ const items = computed<NavigationMenuItem[]>(() => [
     {
         label: 'Langue',
         icon: 'i-lucide-globe',
+        class: 'lg:hidden',
         children: [
             { label: '🇫🇷 Français', onSelect: () => setLocale('fr'), active: locale.value === 'fr' },
             { label: '🇬🇧 English', onSelect: () => setLocale('en'), active: locale.value === 'en' },
