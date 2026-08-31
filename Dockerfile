@@ -1,28 +1,40 @@
-# Stage 1: Base (Installation des dépendances)
+# Stage 1: Base (Installation des dépendances avec pnpm)
 FROM node:22-alpine AS base
+RUN apk update && apk upgrade --no-cache
 WORKDIR /app
-COPY package.json package-lock.json .npmrc ./
-RUN npm ci
 
-# Stage 2: Development (Pour le développement local)
+ENV CI=true
+
+RUN corepack enable
+
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml *.npmrc ./
+
+RUN --mount=type=cache,id=pnpm,target=/root/.local/share/pnpm/store \
+    pnpm install --frozen-lockfile
+
+# Stage 2: Development (Environnement de dev local)
 FROM base AS development
-COPY . ./
-# On expose souvent le port 3000 ou 5173 en dev selon le framework
+COPY . .
 EXPOSE 3000
-CMD ["npm", "run", "dev"]
+EXPOSE 24678
+CMD ["pnpm", "run", "dev"]
 
-# Stage 3: Build (Préparation de la prod)
+# Stage 3: Build (Compilation Nuxt / Nitro)
 FROM base AS build
-COPY . ./
-RUN npm run build
+COPY . .
+RUN pnpm run build
 
-# Stage 4: Production (Image finale légère)
+# Stage 4: Production (Image finale autonome et ultra légère)
 FROM node:22-alpine AS production
+RUN apk update && apk upgrade --no-cache
 WORKDIR /app
-COPY --from=build /app/.output/ ./
 
+COPY --from=build /app/.output ./
+
+ENV NODE_ENV=production
 ENV PORT=80
 ENV HOST=0.0.0.0
+
 EXPOSE 80
 
-CMD ["node", "/app/server/index.mjs"]
+CMD ["node", "server/index.mjs"]

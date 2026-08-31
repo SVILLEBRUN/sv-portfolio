@@ -1,0 +1,18 @@
+services:
+  app-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: sv-portfolio
+    ports:
+      - "3000:3000"
+      - "24678:24678"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.nuxt
+    environment:
+      - HOST=0.0.0.0
+      - PORT=3000
+      - WATCHPACK_POLLING=true

@@ -1,0 +1,16 @@
+services:
+  app-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: sv-portfolio
+    restart: always
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+      - PORT=80
+      - HOST=0.0.0.0
+    env_file:
+      - .env
