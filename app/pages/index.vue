@@ -8,7 +8,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
                     <div v-for="(skill, skill_index) in page.about.skills" 
                         :key="skill_index" 
-                        class="relative  group rounded-4xl p-px hover:z-50"
+                        class="relative  group rounded-4xl p-px hover:z-20"
                     >
                         <div :id="'skill_'+skill_index" class="absolute inset-0 z-0 overflow-hidden rounded-4xl">
                             <div class="moving-dot rounded-4xl absolute h-20 w-20 opacity-80 bg-[radial-gradient(var(--ui-primary)_40%,transparent_60%)] z-0"></div>
