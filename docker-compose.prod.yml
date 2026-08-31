@@ -3,14 +3,14 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      target: production
+      target: 'production-stage'
     container_name: sv-portfolio
     restart: always
     ports:
-      - "80:80"
+      - "8081:8081"
     environment:
       - NODE_ENV=production
-      - PORT=80
+      - PORT=8081
       - HOST=0.0.0.0
     env_file:
       - .env

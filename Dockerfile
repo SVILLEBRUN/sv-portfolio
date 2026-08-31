@@ -13,9 +13,9 @@ RUN --mount=type=cache,id=pnpm,target=/root/.local/share/pnpm/store \
     pnpm install --frozen-lockfile
 
 # Stage 2: Development (Environnement de dev local)
-FROM base AS development
+FROM base AS development-stage
 COPY . .
-EXPOSE 3000
+EXPOSE 8081
 EXPOSE 24678
 CMD ["pnpm", "run", "dev"]
 
@@ -25,16 +25,16 @@ COPY . .
 RUN pnpm run build
 
 # Stage 4: Production (Image finale autonome et ultra légère)
-FROM node:22-alpine AS production
+FROM node:22-alpine AS production-stage
 RUN apk update && apk upgrade --no-cache
 WORKDIR /app
 
 COPY --from=build /app/.output ./
 
 ENV NODE_ENV=production
-ENV PORT=80
+ENV PORT=8081
 ENV HOST=0.0.0.0
 
-EXPOSE 80
+EXPOSE 8081
 
 CMD ["node", "server/index.mjs"]
