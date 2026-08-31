@@ -98,7 +98,7 @@
                 block
                 size="xl"
                 color="primary"
-                icon="i-heroicons-paper-airplane"
+                icon="i-lucide-send-horizontal"
                 :loading="isSubmitting"
                 class="rounded-full py-3 cursor-pointer"
             >
