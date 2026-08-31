@@ -79,7 +79,7 @@
             <UFormField :label="text_content.message.label" name="message" class="text-base">
                 <template #label>
                     <div class="flex items-center gap-2 mb-1">
-                        <UIcon name="i-heroicons-chat-bubble-bottom-center-text" class="size-5" />
+                        <UIcon name="i-tabler-message" class="size-5" />
                         <span>{{ text_content.message.label }}</span>
                     </div>
                 </template>
