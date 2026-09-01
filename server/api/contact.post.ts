@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer'
+import { createHash } from 'crypto'
 
 export default defineEventHandler(async (event) => {
     const body = await readBody(event)
@@ -35,7 +36,8 @@ export default defineEventHandler(async (event) => {
             text: body.text,
         })
 
-        console.info('[API/Contact] Email from ' + body.replyTo + ' sent successfully via Nodemailer.')
+        const emailHash = createHash('sha256').update(body.replyTo).digest('hex').substring(0, 10)
+        console.info(`[API/Contact] Email from ${emailHash} sent successfully !`)
 
         return { success: true }
     } catch (error) {
