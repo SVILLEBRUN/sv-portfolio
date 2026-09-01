@@ -74,16 +74,14 @@ pnpm install
 Create a `.env` file in the root directory based on the variables below:
 
 ```bash
-MAIL_TARGET=target@example.com
-MAIL_USER=sender@example.com
-MAIL_PASS=your-app-password
+NUXT_MAIL_MESSAGE='{"to":"your-email@example.com"}'
+NUXT_MAIL_SMTP='{"service":"gmail","auth":{"user":"your-email@example.com","pass":"your-app-password"}}'
 ```
 
 | Variable | Description |
 | --- | --- |
-| `NUXT_MAIL_MESSAGE_TO` | Destination email address where contact form messages will be sent. |
-| `NUXT_MAIL_SMTP_AUTH_USER` | Email address/account used by the server to send the message. |
-| `NUXT_MAIL_SMTP_AUTH_PASS` | Password or App Password for the sending email account. |
+| `NUXT_MAIL_MESSAGE` | JSON object containing message default settings, including the recipient email (to). |
+| `NUXT_MAIL_SMTP` | JSON object containing SMTP transport configuration (service, username, and app password). |
 
 ---
 
