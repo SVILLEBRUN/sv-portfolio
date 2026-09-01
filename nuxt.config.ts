@@ -53,7 +53,7 @@ export default defineNuxtConfig({
     },
     mail: {
         message: {
-            to: process.env.NUXT_MAIL_MESSAGE_TO ?? '',
+            to: process.env.NUXT_MAIL_MESSAGE_TO ?? 'example@example.com',
         },
         smtp: {
             service: 'gmail',
