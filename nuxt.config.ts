@@ -53,13 +53,13 @@ export default defineNuxtConfig({
     },
     mail: {
         message: {
-            to: process.env.NUXT_MAIL_MESSAGE_TO ?? 'example@example.com',
+            to: process.env.MAIL_TARGET || 'example@example.com',
         },
         smtp: {
             service: 'gmail',
             auth: {
-                user: process.env.NUXT_MAIL_SMTP_AUTH_USER,
-                pass: process.env.NUXT_MAIL_SMTP_AUTH_PASS
+                user: process.env.MAIL_USER,
+                pass: process.env.MAIL_PASS
             }
         }
     }
