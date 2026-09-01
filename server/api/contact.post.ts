@@ -27,14 +27,6 @@ export default defineEventHandler(async (event) => {
             })
         }
 
-        console.log('Sending email with the following details:', {
-            from: body.from,
-            replyTo: body.replyTo,
-            to: config.mailTarget,
-            subject: body.subject,
-            text: body.text,
-        })
-
         await transporter.sendMail({
             from: body.from,
             replyTo: body.replyTo,
@@ -43,9 +35,11 @@ export default defineEventHandler(async (event) => {
             text: body.text,
         })
 
+        console.info('[API/Contact] Email from ' + body.replyTo + ' sent successfully via Nodemailer.')
+
         return { success: true }
     } catch (error) {
-        console.error('SMTP sending error:', error)
+        console.error('[API/Contact] Failed to send email via Nodemailer:', error)
         throw createError({
             statusCode: 500,
             statusMessage: 'Unable to send message.',
