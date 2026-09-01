@@ -7,7 +7,7 @@ social_media_links:
     to: https://www.linkedin.com/in/sébastien-villebrun-dev-fs/
     icon: i-tabler-brand-linkedin
   - label: Email
-    to: mailto:sebastien.villebrun@gmail.com
+    to: mailto:contact@sebastien-villebrun.com
     icon: i-lucide-mail
 nav_links_title: Navegación
 nav_links: 
@@ -30,5 +30,5 @@ skills: [
 contact:
   title: Contacto
   adress: "París, Francia"
-  email: sebastien.villebrun@gmail.com
+  email: contact@sebastien-villebrun.com
 copyright: ©2026 Sébastien Villebrun. Todos los derechos reservados.

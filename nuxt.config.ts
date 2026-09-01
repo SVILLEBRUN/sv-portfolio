@@ -50,5 +50,17 @@ export default defineNuxtConfig({
                 }
             }
         }
-    }
+    },
+    mail: {
+        message: {
+            to: process.env.MAIL_TARGET || 'contact@sebastien-villebrun.com',
+        },
+        smtp: {
+            service: 'gmail',
+            auth: {
+                user: process.env.MAIL_USER,
+                pass: process.env.MAIL_PASS
+            }
+        },
+    },
 })

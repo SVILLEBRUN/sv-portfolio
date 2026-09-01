@@ -272,8 +272,8 @@ contact:
   description: "Have a project in mind, a question, or an opportunity to discuss? Drop me a message and I'll get back to you promptly."
   email_button:
     label: Email
-    to: mailto:sebastien.villebrun@gmail.com
-    tooltip: sebastien.villebrun@gmail.com
+    to: mailto:contact@sebastien-villebrun.com
+    tooltip: contact@sebastien-villebrun.com
     icon: i-lucide-mail
   linkedin_button:
     label: LinkedIn

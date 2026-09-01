@@ -272,8 +272,8 @@ contact:
   description: "¿Tiene un proyecto en mente, una propuesta o alguna consulta técnica? Escríbame y le responderé lo antes posible."
   email_button:
     label: Email
-    to: mailto:sebastien.villebrun@gmail.com
-    tooltip: sebastien.villebrun@gmail.com
+    to: mailto:contact@sebastien-villebrun.com
+    tooltip: contact@sebastien-villebrun.com
     icon: i-lucide-mail
   linkedin_button:
     label: LinkedIn

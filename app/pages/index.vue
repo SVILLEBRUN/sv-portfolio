@@ -67,10 +67,10 @@
                         </div>
                         <div class="flex-1 flex flex-col border border-default rounded-2xl py-4 px-4 lg:py-10 lg:px-8">
                             <div class="md:text-2xl text-xl font-bold mb-2">{{ page.about.copy_email.title }}</div>
-                            <div class="text-toned mb-2 text-sm lg:text-base"><span class="font-bold">Email : </span><a href="mailto:sebastien.villebrun@gmail.com" class="hover:text-primary">sebastien.villebrun@gmail.com</a></div>
+                            <div class="text-toned mb-2 text-sm lg:text-base"><span class="font-bold">Email : </span><a href="mailto:contact@sebastien-villebrun.com" class="hover:text-primary">contact@sebastien-villebrun.com</a></div>
                             <div class="flex items-center justify-center h-full">
                                 <EmailButton 
-                                    :email="'sebastien.villebrun@gmail.com'" 
+                                    :email="'contact@sebastien-villebrun.com'" 
                                     :default-text="page.about.copy_email.button_default"
                                     :success-text="page.about.copy_email.button_success"
                                />
@@ -150,7 +150,7 @@
                         variant="subtle"
                         :ui="{ base: 'text-sm sm:text-base md:text-lg px-5 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3' }"
                         class="mb-6 md:mb:8 rounded-full cursor-pointer"
-                        to="mailto:sebastien.villebrun@gmail.com"
+                        to="mailto:contact@sebastien-villebrun.com"
                     >
                         {{ page.contact.subtitle }}
                     </UButton>
