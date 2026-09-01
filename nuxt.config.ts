@@ -31,6 +31,9 @@ export default defineNuxtConfig({
         detectBrowserLanguage: { useCookie: true, fallbackLocale: 'fr', cookieKey: 'i18n_redirected', redirectOn: 'root' }
     },
     runtimeConfig: {
+        mailUser: process.env.MAIL_USER,
+        mailPass: process.env.MAIL_PASS,
+        mailTarget: process.env.MAIL_TARGET,
         public: {
             motion: {
                 directives: {
