@@ -21,13 +21,6 @@ CMD ["pnpm", "run", "dev"]
 
 # Stage 3: Build (Compilation Nuxt / Nitro)
 FROM base AS build
-ARG MAIL_USER
-ARG MAIL_PASS
-ARG MAIL_TARGET
-
-ENV MAIL_USER=$MAIL_USER
-ENV MAIL_PASS=$MAIL_PASS
-ENV MAIL_TARGET=$MAIL_TARGET
 COPY . .
 RUN pnpm run build
 

@@ -29,8 +29,5 @@ jobs:
             --platform linux/arm64 \
             --file ./Dockerfile \
             --target production-stage \
-            --build-arg MAIL_USER="$MAIL_USER" \
-            --build-arg MAIL_PASS="$MAIL_PASS" \
-            --build-arg MAIL_TARGET="$MAIL_TARGET" \
             --tag sebvillebrun/sv-portfolio:latest \
             --push
