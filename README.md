@@ -81,9 +81,9 @@ MAIL_PASS=your-app-password
 
 | Variable | Description |
 | --- | --- |
-| `MAIL_TARGET` | Destination email address where contact form messages will be sent. |
-| `MAIL_USER` | Email address/account used by the server to send the message. |
-| `MAIL_PASS` | Password or App Password for the sending email account. |
+| `NUXT_MAIL_MESSAGE_TO` | Destination email address where contact form messages will be sent. |
+| `NUXT_MAIL_SMTP_AUTH_USER` | Email address/account used by the server to send the message. |
+| `NUXT_MAIL_SMTP_AUTH_PASS` | Password or App Password for the sending email account. |
 
 ---
 
