@@ -140,13 +140,12 @@ projects:
           - Présenter mes projets, parcours et compétences
           - Proposer une expérience trilingue (FR / EN / ES)
           - Découvrir les projets avec démos interactives et dépôts GitHub
-      # TODO: Change demo link
       github_button: 
         label: GitHub
         to: https://github.com/SVILLEBRUN/sv-portfolio
       demo_button:
         label: Démo
-        to: http://77.207.128.108:880/
+        to: https://sebastien-villebrun.com
       is_current_site: true
       image: /projects/portfolio.png
       main_stack: [ Nuxt.js, Typescript, i18n ]
@@ -176,13 +175,12 @@ projects:
           - Vérifier instantanément l'authenticité d'un certificat
           - Consulter et partager ses certifications
           - Garantir la valeur et l'immuabilité des titres délivrés
-      # TODO: Change demo link
       github_button: 
         label: GitHub
         to: https://github.com/SVILLEBRUN/Academint
       demo_button:
         label: Démo
-        to: http://77.207.128.108:880/academint/
+        to: https://sebastien-villebrun.com/academint/
       image: /projects/academint.png
       main_stack: [ Ruby on Rails, PostgreSQL, Web3 ]
       stack:
@@ -211,13 +209,12 @@ projects:
           - Géolocaliser les pièces disponibles à proximité
           - Réserver un bijou et gérer ses créneaux de location
           - Communiquer entre propriétaires et locataires via la messagerie
-      # TODO: Change demo link
       github_button: 
         label: GitHub
         to: https://github.com/SVILLEBRUN/airjewels-rails
       demo_button:
         label: Démo
-        to: http://77.207.128.108:880/airjewels-rails/
+        to: https://sebastien-villebrun.com/airjewels-rails/
       image: /projects/airjewels.png
       main_stack: [ Ruby on Rails, PostgreSQL ]
       stack:
@@ -247,7 +244,7 @@ projects:
           - Optimiser les temps de réponse via le caching et l'indexation sur la base de données
       # demo_button:
       #   label: Démo
-      #   to: http://77.207.128.108:880/movie-db-app/api/movies
+      #   to: https://sebastien.villebrun.com/movie-db-app/api/movies
       github_button: 
         label: GitHub
         to: https://github.com/SVILLEBRUN/Movie_db_app

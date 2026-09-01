@@ -146,7 +146,7 @@ projects:
         to: https://github.com/SVILLEBRUN/sv-portfolio
       demo_button:
         label: Live Demo
-        to: http://77.207.128.108:880/
+        to: https://sebastien.villebrun.com/
       is_current_site: true
       image: /projects/portfolio.png
       main_stack: [ Nuxt.js, Typescript, i18n ]
@@ -182,7 +182,7 @@ projects:
         to: https://github.com/SVILLEBRUN/Academint
       demo_button:
         label: Live Demo
-        to: http://77.207.128.108:880/academint/
+        to: https://sebastien.villebrun.com/academint/
       image: /projects/academint.png
       main_stack: [ Ruby on Rails, PostgreSQL, Web3 ]
       stack:
@@ -217,7 +217,7 @@ projects:
         to: https://github.com/SVILLEBRUN/airjewels-rails
       demo_button:
         label: Live Demo
-        to: http://77.207.128.108:880/airjewels-rails/
+        to: https://sebastien.villebrun.com/airjewels-rails/
       image: /projects/airjewels.png
       main_stack: [ Ruby on Rails, PostgreSQL ]
       stack:
@@ -247,7 +247,7 @@ projects:
           - Response time optimization through database caching and indexing
       # demo_button:
       #   label: Live Demo
-      #   to: http://77.207.128.108:880/movie-db-app/api/movies
+      #   to: https://sebastien.villebrun.com/movie-db-app/api/movies
       github_button: 
         label: GitHub
         to: https://github.com/SVILLEBRUN/Movie_db_app
