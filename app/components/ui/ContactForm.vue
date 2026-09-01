@@ -178,6 +178,7 @@ type FormSchema = z.output<typeof schema>
 
 const toast = useToast()
 const isSubmitting = ref(false)
+
 const mail = useMail()
 
 async function onSubmit(event: FormSubmitEvent<FormSchema>) {
@@ -185,7 +186,8 @@ async function onSubmit(event: FormSubmitEvent<FormSchema>) {
     try {
         const full_message = event.data.message + '\n\n' + 'De : ' + event.data.fullname + ' - ' + event.data.email
         await mail.send({
-            from: 'Portfolio App - ' + event.data.fullname + ' <' + event.data.email + '>',
+            from: 'Portfolio - ' + event.data.fullname + ' <' + event.data.email + '>',
+            replyTo: event.data.email,
             subject: event.data.subject,
             text: full_message
         })

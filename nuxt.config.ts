@@ -3,7 +3,7 @@ export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
     devtools: { enabled: false },
     css: ['~/assets/css/main.css'],
-    modules: ['@nuxt/ui', '@nuxt/content', '@nuxtjs/i18n', '@vueuse/motion/nuxt', '@nuxt/image', 'nuxt-mail'],
+    modules: ['@nuxt/ui', '@nuxt/content', '@nuxtjs/i18n', '@vueuse/motion/nuxt', '@nuxt/image'],
     app: {
         head: {
             link: [
@@ -53,17 +53,5 @@ export default defineNuxtConfig({
                 }
             }
         }
-    },
-    mail: {
-        message: {
-            to: process.env.MAIL_TARGET || 'contact@sebastien-villebrun.com',
-        },
-        smtp: {
-            service: 'gmail',
-            auth: {
-                user: process.env.MAIL_USER,
-                pass: process.env.MAIL_PASS
-            }
-        },
-    },
+    }
 })
