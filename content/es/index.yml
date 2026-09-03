@@ -1,6 +1,3 @@
-seo: 
-  title: Sébastien.V - Desarrollador Fullstack Node.js, Vue.js y Ruby on Rails
-  description: ¡Bienvenido a mi portafolio! Soy Sébastien VILLEBRUN, desarrollador Full-Stack especializado en el diseño de aplicaciones SaaS web y móviles a medida.
 hero:
   headline: Disponible para nuevos proyectos
   title: Desarrollador <span class="text-gradient">FullStack</span>
@@ -148,7 +145,7 @@ projects:
         label: Demo
         to: https://sebastien.villebrun.com/
       is_current_site: true
-      image: /projects/portfolio.png
+      image: /projects/portfolio_es.png
       main_stack: [ Nuxt.js, Typescript, i18n ]
       stack:
         - title: Nuxt.js

@@ -1,6 +1,3 @@
-seo: 
-  title: Sébastien.V - Full-Stack Developer | Node.js, Vue.js & Ruby on Rails
-  description: Welcome to my portfolio! I'm Sébastien VILLEBRUN, a Full-Stack Developer specializing in building web and mobile SaaS applications.
 hero:
   headline: Available for new opportunities
   title: <span class="text-gradient">Full-Stack</span> Developer
@@ -140,7 +137,6 @@ projects:
           - Showcase projects, professional background, and core technical skills
           - Trilingual user experience (EN / FR / ES)
           - Interactive project exploration with live demos and GitHub repositories
-      # TODO: Change demo link
       github_button: 
         label: GitHub
         to: https://github.com/SVILLEBRUN/sv-portfolio
@@ -148,7 +144,7 @@ projects:
         label: Live Demo
         to: https://sebastien.villebrun.com/
       is_current_site: true
-      image: /projects/portfolio.png
+      image: /projects/portfolio_en.png
       main_stack: [ Nuxt.js, Typescript, i18n ]
       stack:
         - title: Nuxt.js
@@ -176,7 +172,6 @@ projects:
           - Verify certificate authenticity instantly
           - Manage, view, and share earned certifications
           - Ensure the immutability and long-term validity of issued credentials
-      # TODO: Change demo link
       github_button: 
         label: GitHub
         to: https://github.com/SVILLEBRUN/Academint
@@ -211,7 +206,6 @@ projects:
           - Geolocation to find available pieces nearby
           - Booking management and availability scheduling
           - Direct messaging system between owners and renters
-      # TODO: Change demo link
       github_button: 
         label: GitHub
         to: https://github.com/SVILLEBRUN/airjewels-rails

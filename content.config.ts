@@ -1,11 +1,6 @@
 import { defineContentConfig, defineCollection, z } from '@nuxt/content'
 import type { z as zod } from 'zod'
 
-const createBaseSchema = () => z.object({
-    title: z.string().nonempty(),
-    description: z.string().nonempty()
-})
-
 const createLinkSchema = () => z.object({
     label: z.string().optional(),
     to: z.string().nonempty(),
@@ -79,6 +74,25 @@ export type ContactForm = zod.infer<typeof contactFormSchema>
 
 export default defineContentConfig({
     collections: {
+        seo: defineCollection({
+            type: 'page',
+            source: '**/seo.yml',
+            schema: z.object({
+                title: z.string().nonempty(),
+                description: z.string().nonempty(),
+                author: z.string().nonempty(),
+
+                ogTitle: z.string().nonempty(),
+                ogDescription: z.string().nonempty(),
+                ogImage: z.string().nonempty(),
+                ogUrl: z.string().nonempty(),
+                ogSiteName: z.string().nonempty(),
+
+                twitterTitle: z.string().nonempty(),
+                twitterDescription: z.string().nonempty(),
+                twitterImage: z.string().nonempty()
+            })
+        }),
         header: defineCollection({
             type: 'page',
             source: '**/header.yml',

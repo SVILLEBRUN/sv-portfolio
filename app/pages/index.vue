@@ -227,7 +227,6 @@ const { data: page } = await useAsyncData(
             .path(`/${locale.value}`)
             .first()
             
-        // comparaison directe sans .value sur defaultLocale
         if (!content && locale.value !== defaultLocale) {
             content = await queryCollection('index')
                 .path(`/${defaultLocale}`)
@@ -245,7 +244,6 @@ const { data: about_me } = await useAsyncData(
             .path(`/${locale.value}/about_me`)
             .first()
             
-        // comparaison directe sans .value sur defaultLocale
         if (!content && locale.value !== defaultLocale) {
             content = await queryCollection('about_me')
                 .path(`/${defaultLocale}/about_me`)
