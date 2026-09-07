@@ -15,8 +15,8 @@
                         </div>
     
                         <div class="relative flex z-10 h-full w-full items-center rounded-4xl border border-default p-2 bg-default">
-                            <NuxtImg :src="skill.image" :alt="skill.title" height="80" format="webp" quality="80" class="hidden lg:block py-2"/>
-                            <div class="ml-2 text-center w-full h-full">
+                            <NuxtImg :src="skill.image" :alt="skill.title" height="80" format="webp" quality="80" class="hidden lg:block mr-2"/>
+                            <div class="text-center w-full h-full">
                                 <div class="text-lg font-bold mb-2">{{ skill.title }}</div>
                                 <div class="flex flex-wrap justify-center gap-2">
                                     <template v-for="(item, item_index) in skill.items" :key="item_index">
@@ -46,7 +46,7 @@
     
                 <!-- About_me -->
                 <div class="mt-12 md:mt-22 grid grid-cols-1 md:grid-cols-5 gap-4">
-                    <div class="md:col-span-3 border border-default rounded-2xl py-4 px-8 lg:py-10 lg:px-16 text-sm/6">
+                    <div class="md:col-span-3 border border-default rounded-2xl py-4 px-4 md:px-8 lg:py-10 lg:px-16 text-sm/6">
                         <ContentRenderer :value="about_me" class="text-sm" :prose="true" />
                     </div>
                     <div class="md:col-span-2 flex flex-col h-full gap-4">

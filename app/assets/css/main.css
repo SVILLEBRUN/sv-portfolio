@@ -31,6 +31,10 @@
 
 /* Larger font weight */
 @layer base {
+    html, body {
+        overflow-x: hidden;
+    }
+
     body {
         font-weight: var(--font-weight-normal);
         letter-spacing: var(--tracking-normal);
@@ -87,36 +91,46 @@
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-    padding-right: 2rem;
-    padding-left: 2rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
 }
 
 @media (min-width: 640px) {
     .container {
         max-width: 640px;
+        padding-right: 1rem;
+        padding-left: 1rem;
     }
 }
 
 @media (min-width: 768px) {
     .container {
         max-width: 768px;
+        padding-right: 2rem;
+        padding-left: 2rem;
     }
 }
 
 @media (min-width: 1024px) {
     .container {
         max-width: 1024px;
+        padding-right: 2rem;
+        padding-left: 2rem;
     }
 }
 
 @media (min-width: 1280px) {
     .container {
         max-width: 1280px;
+        padding-right: 2rem;
+        padding-left: 2rem;
     }
 }
 
 @media (min-width: 1536px) {
     .container {
         max-width: 1536px;
+        padding-right: 2rem;
+        padding-left: 2rem;
     }
 }
