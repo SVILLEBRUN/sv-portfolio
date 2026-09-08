@@ -13,3 +13,10 @@ ogSiteName: Sébastien VILLEBRUN - Portfolio
 twitterTitle: Sébastien VILLEBRUN - Full-Stack Developer | Node.js, Vue.js & Ruby on Rails
 twitterDescription: Explore my projects and expertise in web & mobile software development. Open to new opportunities.
 twitterImage: https://sebastien-villebrun.com/projects/portfolio_en.png
+
+
+schemaOrg: 
+  person:
+    name: Sébastien VILLEBRUN
+    jobTitle: Full-Stack Developer | Node.js, Vue.js & Ruby on Rails
+    url: https://sebastien-villebrun.com/en

@@ -3,7 +3,7 @@ export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
     devtools: { enabled: false },
     css: ['~/assets/css/main.css'],
-    modules: ['@nuxt/ui', '@nuxt/content', '@nuxtjs/i18n', '@vueuse/motion/nuxt', '@nuxt/image'],
+    modules: ['@nuxt/ui', '@nuxt/content', '@nuxtjs/i18n', '@vueuse/motion/nuxt', '@nuxt/image', '@nuxtjs/seo'],
     app: {
         head: {
             link: [
@@ -20,6 +20,15 @@ export default defineNuxtConfig({
             pathPrefix: false
         }
     ],
+    site: {
+        url: 'https://sebastien-villebrun.com',
+        name: 'Sébastien VILLEBRUN - Développeur Fullstack Node.js & Vue.js & Ruby on Rails',
+        description: 'Développeur Fullstack spécialisé dans la conception d\'applications SaaS web et mobile performantes, scalables et centrées sur l\'expérience utilisateur.',
+        defaultLocale: 'fr',
+    },
+    seo: {
+        redirectToCanonicalSiteUrl: true,
+    },
     i18n: {
         locales: [
             { code: 'fr', name: 'Français', language: 'fr-FR', dir: 'ltr' },

@@ -90,7 +90,15 @@ export default defineContentConfig({
 
                 twitterTitle: z.string().nonempty(),
                 twitterDescription: z.string().nonempty(),
-                twitterImage: z.string().nonempty()
+                twitterImage: z.string().nonempty(),
+
+                schemaOrg: z.object({
+                    person: z.object({
+                        name: z.string().nonempty(),
+                        jobTitle: z.string().nonempty(),
+                        url: z.string().nonempty()
+                    })
+                })
             })
         }),
         header: defineCollection({

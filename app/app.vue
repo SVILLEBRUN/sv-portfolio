@@ -58,4 +58,18 @@ useSeoMeta({
     twitterDescription: () => seo.value?.twitterDescription || '',
     twitterImage: () => seo.value?.twitterImage || '',
 })
+
+
+useSchemaOrg([
+    definePerson({
+        name: () => seo.value?.schemaOrg?.person?.name || '',
+        jobTitle: () => seo.value?.schemaOrg?.person?.jobTitle || '',
+        url: () => seo.value?.schemaOrg?.person?.url || '',
+        sameAs: [
+            'https://github.com/SVILLEBRUN',
+            'https://www.linkedin.com/in/sébastien-villebrun-dev-fs/',
+            'https://www.malt.fr/profile/sebastienvillebrun'
+        ]
+    })
+])
 </script>
