@@ -30,6 +30,7 @@ export default defineNuxtConfig({
         redirectToCanonicalSiteUrl: true,
     },
     i18n: {
+        baseUrl: 'https://sebastien-villebrun.com',
         locales: [
             { code: 'fr', name: 'Français', language: 'fr-FR', dir: 'ltr' },
             { code: 'en', name: 'English', language: 'en-US', dir: 'ltr' },
