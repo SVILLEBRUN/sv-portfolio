@@ -9,11 +9,6 @@ ogImage: https://sebastien-villebrun.com/projects/portfolio_es.png
 ogUrl: https://sebastien-villebrun.com
 ogSiteName: Sébastien VILLEBRUN - Portfolio
 
-# Twitter Cards
-twitterTitle: Sébastien VILLEBRUN - Desarrollador Fullstack Node.js, Vue.js y Ruby on Rails
-twitterDescription: Descubre mis proyectos y habilidades en desarrollo web y móvil. Disponible para nuevas oportunidades profesionales.
-twitterImage: https://sebastien-villebrun.com/projects/portfolio_es.png
-
 
 schemaOrg: 
   person:

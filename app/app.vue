@@ -48,15 +48,11 @@ useSeoMeta({
     ogTitle: () => seo.value?.ogTitle || '',
     ogDescription: () => seo.value?.ogDescription || '',
     ogImage: () => seo.value?.ogImage || '',
+    ogImageWidth: 2500,
+    ogImageHeight: 1380,
     ogUrl: () => seo.value?.ogUrl || '',
     ogType: 'website',
-    ogSiteName: () => seo.value?.ogSiteName || '',
-
-    // Twitter
-    twitterCard: 'summary_large_image',
-    twitterTitle: () => seo.value?.twitterTitle || '',
-    twitterDescription: () => seo.value?.twitterDescription || '',
-    twitterImage: () => seo.value?.twitterImage || '',
+    ogSiteName: () => seo.value?.ogSiteName || ''
 })
 
 
