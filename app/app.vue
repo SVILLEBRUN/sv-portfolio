@@ -28,7 +28,14 @@ const { data: seo } = await useAsyncData(
 
 
 useHead({
-    title: seo.value?.title || '',
+    title: () => seo.value?.title || '',
+    link: [
+        { rel: 'canonical', href: 'https://sebastien-villebrun.com/' },
+        { rel: 'alternate', hreflang: 'fr', href: 'https://sebastien-villebrun.com/' },
+        { rel: 'alternate', hreflang: 'en', href: 'https://sebastien-villebrun.com/en' },
+        { rel: 'alternate', hreflang: 'es', href: 'https://sebastien-villebrun.com/es' },
+        { rel: 'alternate', hreflang: 'x-default', href: 'https://sebastien-villebrun.com/' }
+    ]
 })
 
 
