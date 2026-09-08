@@ -33,22 +33,22 @@ useHead({
 
 
 useSeoMeta({
-    title: seo.value?.title || '',
-    description: seo.value?.description || '',
-    author: seo.value?.author || '',
-    
+    title: () => seo.value?.title || '',
+    description: () => seo.value?.description || '',
+    author: () => seo.value?.author || '',
+
     // Open Graph
-    ogTitle: seo.value?.ogTitle || '',
-    ogDescription: seo.value?.ogDescription || '',
-    ogImage: seo.value?.ogImage || '',
-    ogUrl: seo.value?.ogUrl || '',
+    ogTitle: () => seo.value?.ogTitle || '',
+    ogDescription: () => seo.value?.ogDescription || '',
+    ogImage: () => seo.value?.ogImage || '',
+    ogUrl: () => seo.value?.ogUrl || '',
     ogType: 'website',
-    ogSiteName: seo.value?.ogSiteName || '',
+    ogSiteName: () => seo.value?.ogSiteName || '',
 
     // Twitter
     twitterCard: 'summary_large_image',
-    twitterTitle: seo.value?.twitterTitle || '',
-    twitterDescription: seo.value?.twitterDescription || '',
-    twitterImage: seo.value?.twitterImage || '',
+    twitterTitle: () => seo.value?.twitterTitle || '',
+    twitterDescription: () => seo.value?.twitterDescription || '',
+    twitterImage: () => seo.value?.twitterImage || '',
 })
 </script>
