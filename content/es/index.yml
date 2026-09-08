@@ -1,6 +1,6 @@
 hero:
   headline: Disponible para nuevos proyectos
-  title: Desarrollador <span class="text-gradient">FullStack</span>
+  title: Desarrollador <span class="text-gradient">Full Stack</span>
   description: Diseño y desarrollo aplicaciones SaaS de alto rendimiento, escalables y centradas en la experiencia de usuario.
 about:
   title: Sobre mí
@@ -124,7 +124,7 @@ projects:
   modal_title: Detalles del proyecto 
   items:
     - title: Sébastien V. - Portafolio
-      description: Mi portafolio de desarrollador FullStack Nuxt.js & TypeScript
+      description: Mi portafolio de desarrollador Full Stack Nuxt.js & TypeScript
       detailed_description: |
         Un portafolio a medida, moderno y responsive, concebido para poner en valor mis competencias técnicas, mis proyectos y mi experiencia en el desarrollo de interfaces de alto valor añadido.
 

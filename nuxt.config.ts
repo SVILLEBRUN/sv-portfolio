@@ -22,8 +22,8 @@ export default defineNuxtConfig({
     ],
     site: {
         url: 'https://sebastien-villebrun.com',
-        name: 'Sébastien VILLEBRUN - Développeur Fullstack Node.js & Vue.js & Ruby on Rails',
-        description: 'Développeur Fullstack spécialisé dans la conception d\'applications SaaS web et mobile performantes, scalables et centrées sur l\'expérience utilisateur.',
+        name: 'Sébastien VILLEBRUN - Développeur Full Stack Node.js & Vue.js & Ruby on Rails',
+        description: 'Développeur Full Stack spécialisé dans la conception d\'applications SaaS web et mobile performantes, scalables et centrées sur l\'expérience utilisateur.',
         defaultLocale: 'fr',
     },
     seo: {

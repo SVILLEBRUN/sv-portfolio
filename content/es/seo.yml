@@ -1,9 +1,9 @@
-title: Sébastien VILLEBRUN - Desarrollador Fullstack Node.js, Vue.js y Ruby on Rails
-description: Desarrollador Fullstack especializado en la creación de aplicaciones web y móviles SaaS de alto rendimiento, escalables y centradas en la experiencia de usuario (UX).
+title: Sébastien VILLEBRUN - Desarrollador Full Stack Node.js, Vue.js y Ruby on Rails
+description: Desarrollador Full Stack especializado en la creación de aplicaciones web y móviles SaaS de alto rendimiento, escalables y centradas en la experiencia de usuario (UX).
 author: Sébastien VILLEBRUN
 
 # Open Graph (LinkedIn, Facebook, Discord, Slack)
-ogTitle: Sébastien VILLEBRUN - Desarrollador Fullstack Node.js, Vue.js y Ruby on Rails
+ogTitle: Sébastien VILLEBRUN - Desarrollador Full Stack Node.js, Vue.js y Ruby on Rails
 ogDescription: Descubre mis proyectos y habilidades en desarrollo web y móvil. Disponible para nuevas oportunidades profesionales.
 ogImage: https://sebastien-villebrun.com/projects/portfolio_es.png
 ogUrl: https://sebastien-villebrun.com
@@ -13,5 +13,5 @@ ogSiteName: Sébastien VILLEBRUN - Portfolio
 schemaOrg: 
   person:
     name: Sébastien VILLEBRUN
-    jobTitle: Desarrollador Fullstack Node.js, Vue.js y Ruby on Rails
+    jobTitle: Desarrollador Full Stack Node.js, Vue.js y Ruby on Rails
     url: https://sebastien-villebrun.com/es
