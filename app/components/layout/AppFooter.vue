@@ -7,15 +7,17 @@
                     <div class="text-muted text-sm">{{ footer?.description }}</div>
                     <div class="flex gap-1">
                         <template v-for="(link, item_index) in footer?.social_media_links" :key="item_index">
-                            <UButton 
-                                :icon="link.icon" 
-                                :to="link.to" 
-                                target="_blank" 
-                                variant="link" 
-                                color="neutral" 
-                                class="hover:text-primary" 
-                                size="xl"
-                            />
+                            <ClientOnly>
+                                <UButton 
+                                    :icon="link.icon" 
+                                    :to="link.to" 
+                                    target="_blank" 
+                                    variant="link" 
+                                    color="neutral" 
+                                    class="hover:text-primary" 
+                                    size="xl"
+                                />
+                            </ClientOnly>
                         </template>
                     </div>
                 </div>
@@ -46,7 +48,9 @@
                     <div class="text-lg font-bold">{{ footer?.contact.title }}</div>
     
                     <div class="text-sm text-muted font-medium">
-                        <a :href="'mailto:' + footer?.contact.email" class="hover:text-primary py-1">{{ footer?.contact.email }}</a>
+                        <ClientOnly>
+                            <a :href="'mailto:' + footer?.contact.email" class="hover:text-primary py-1">{{ footer?.contact.email }}</a>
+                        </ClientOnly>
                         <div class="py-1">{{ footer?.contact.adress }}</div>
                     </div>
                 </div>

@@ -67,13 +67,17 @@
                         </div>
                         <div class="flex-1 flex flex-col border border-default rounded-2xl py-4 px-4 lg:py-10 lg:px-8">
                             <div class="md:text-2xl text-xl font-bold mb-2">{{ page.about.copy_email.title }}</div>
-                            <div class="text-toned mb-2 text-sm lg:text-base"><span class="font-bold">Email : </span><a href="mailto:contact@sebastien-villebrun.com" class="hover:text-primary">contact@sebastien-villebrun.com</a></div>
+                            <ClientOnly>
+                                <div class="text-toned mb-2 text-sm lg:text-base"><span class="font-bold">Email : </span><a href="mailto:contact@sebastien-villebrun.com" class="hover:text-primary">contact@sebastien-villebrun.com</a></div>
+                            </ClientOnly>
                             <div class="flex items-center justify-center h-full">
-                                <EmailButton 
-                                    :email="'contact@sebastien-villebrun.com'" 
-                                    :default-text="page.about.copy_email.button_default"
-                                    :success-text="page.about.copy_email.button_success"
-                               />
+                                <ClientOnly>
+                                    <EmailButton 
+                                        :email="'contact@sebastien-villebrun.com'" 
+                                        :default-text="page.about.copy_email.button_default"
+                                        :success-text="page.about.copy_email.button_success"
+                                   />
+                                </ClientOnly>
                             </div>
                         </div>
                     </div>
@@ -145,15 +149,17 @@
             <!-- page.contact -->
             <div class="pt-12 md:pt-22 pb-8 md:pb-18 mt-4" id="contact">
                 <div class="text-center">
-                    <UButton 
-                        icon="i-lucide-mail" 
-                        variant="subtle"
-                        :ui="{ base: 'text-sm sm:text-base md:text-lg px-5 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3' }"
-                        class="mb-6 md:mb:8 rounded-full cursor-pointer"
-                        to="mailto:contact@sebastien-villebrun.com"
-                    >
-                        {{ page.contact.subtitle }}
-                    </UButton>
+                    <ClientOnly>
+                        <UButton 
+                            icon="i-lucide-mail" 
+                            variant="subtle"
+                            :ui="{ base: 'text-sm sm:text-base md:text-lg px-5 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3' }"
+                            class="mb-6 md:mb:8 rounded-full cursor-pointer"
+                            to="mailto:contact@sebastien-villebrun.com"
+                        >
+                            {{ page.contact.subtitle }}
+                        </UButton>
+                    </ClientOnly>
                     
                     <div class="text-4xl md:text-6xl font-semibold mb-2 sm:mb-4 md:mb-6" v-html="page.contact.title"></div>
                     
@@ -162,21 +168,23 @@
                         <ContactForm :text_content="page.contact.form" />
 
                         <div class="grid grid-cols-1 lg:grid-cols-3 mt-12 gap-6">
-                            <a 
-                                class="border-default border rounded-3xl p-4 hover:scale-105 transition-transform duration-300 glass-card cursor-pointer"
-                                :href="page.contact.email_button.to"
-                                target="_blank"
-                            >
-                                <UButton 
-                                    size="xl" 
-                                    :icon="page.contact.email_button.icon" 
-                                    variant="soft" 
-                                    class="pointer-events-none rounded-full p-4"
-                                    color="secondary"
-                                />
-                                <div class="font-bold mt-2">{{ page.contact.email_button.label }}</div>
-                                <div class="text-muted text-sm mt-2">{{ page.contact.email_button.tooltip }}</div>
-                            </a>
+                            <ClientOnly>
+                                <a 
+                                    class="border-default border rounded-3xl p-4 hover:scale-105 transition-transform duration-300 glass-card cursor-pointer"
+                                    :href="page.contact.email_button.to"
+                                    target="_blank"
+                                >
+                                    <UButton 
+                                        size="xl" 
+                                        :icon="page.contact.email_button.icon" 
+                                        variant="soft" 
+                                        class="pointer-events-none rounded-full p-4"
+                                        color="secondary"
+                                    />
+                                    <div class="font-bold mt-2">{{ page.contact.email_button.label }}</div>
+                                    <div class="text-muted text-sm mt-2">{{ page.contact.email_button.tooltip }}</div>
+                                </a>
+                            </ClientOnly>
 
                             <a 
                                 class="border-default border rounded-3xl p-4 hover:scale-105 transition-transform duration-300 glass-card cursor-pointer"
