@@ -1,11 +1,11 @@
 # Stage 1: Base (Installation des dépendances avec pnpm)
-FROM node:22-alpine AS base
+FROM node:26-alpine AS base
 RUN apk update && apk upgrade --no-cache
 WORKDIR /app
 
 ENV CI=true
 
-RUN corepack enable
+RUN npm install -g pnpm@12
 
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml *.npmrc ./
 
@@ -26,7 +26,7 @@ COPY . .
 RUN pnpm run build
 
 # Stage 4: Production (Image finale autonome et ultra légère)
-FROM node:22-alpine AS production-stage
+FROM node:26-alpine AS production-stage
 RUN apk update && apk upgrade --no-cache
 WORKDIR /app
 
