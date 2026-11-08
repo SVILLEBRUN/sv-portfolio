@@ -15,7 +15,7 @@
                         </div>
     
                         <div class="relative flex z-10 h-full w-full items-center rounded-4xl border border-default p-2 bg-default">
-                            <NuxtImg :src="skill.image" :alt="skill.title" height="80" format="webp" quality="80" class="hidden lg:block mr-2"/>
+                            <NuxtImg :src="skill.image" :alt="skill.title" height="80" loading="lazy" format="webp" quality="80" class="hidden lg:block mr-2"/>
                             <div class="text-center w-full h-full">
                                 <h3 class="text-lg font-bold mb-2">{{ skill.title }}</h3>
                                 <div class="flex flex-wrap justify-center gap-2">
@@ -34,7 +34,7 @@
                                                 </div>
                                             </template>
                                             <div  class="relative cursor-pointer transition-transform duration-300 group-hover/item:scale-100">
-                                                <NuxtImg :src="item.logo" :alt="item.title" format="webp" quality="40" class="bg-white rounded-full border-2 border-white flex items-center justify-center h-10 w-10 md:h-12 md:w-12 object-contain transition duration-300 group-hover/item:scale-110" />
+                                                <NuxtImg :src="item.logo" :alt="item.title" width="48" height="48" fit="inside" loading="lazy" format="webp" quality="40" class="bg-white rounded-full border-2 border-white flex items-center justify-center h-10 w-10 md:h-12 md:w-12 object-contain transition duration-300 group-hover/item:scale-110" />
                                             </div>
                                         </AnimatedTooltip>
                                     </template>
@@ -98,7 +98,7 @@
                         class="mask-[linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]"
                     >
                         <div class="flex items-center justify-center px-4 py-2 w-fit">
-                            <NuxtImg :src="item.logo" :alt="item.title" format="webp" quality="40" class="h-10 md:h-12"/>
+                            <NuxtImg :src="item.logo" :alt="item.title" height="48" format="webp" quality="40" class="h-10 md:h-12"/>
                             <div class="ml-2 font-bold text-sm md:text-base">{{ item.title }}</div>
                         </div>
                     </UCarousel>

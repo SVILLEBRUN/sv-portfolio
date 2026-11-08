@@ -9,6 +9,8 @@
                 :src="project.image" 
                 :alt="project.title" 
                 format="webp" 
+                :sizes="detailed ? '600px sm:624px md:720px' : '100vw sm:560px md:420px 2xl:510px'"
+                loading="lazy"
                 class="w-full object-cover"
                 :class="!detailed ? 'group-hover/card:scale-120 transition duration-300 h-48' : 'h-70'"
             />
@@ -38,7 +40,7 @@
             <template v-for="(item, item_index) in project.stack" :key="item_index">
                 <UTooltip :content="{ side: 'top' }" :text="item.title" :delayDuration="100">
                     <div  class="relative transition-transform duration-300 group/item group-hover/item:scale-100 cursor-pointer">
-                        <NuxtImg :src="item.logo" :alt="item.title" format="webp" quality="40" class="bg-white rounded-full border-2 border-white flex items-center justify-center h-8 w-8 md:h-10 md:w-10 object-contain transition duration-300 group-hover/item:scale-110" />
+                        <NuxtImg :src="item.logo" :alt="item.title" width="40" height="40" fit="inside" loading="lazy" format="webp" quality="40" class="bg-white rounded-full border-2 border-white flex items-center justify-center h-8 w-8 md:h-10 md:w-10 object-contain transition duration-300 group-hover/item:scale-110" />
                     </div>
                 </UTooltip>
             </template>
