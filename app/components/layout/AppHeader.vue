@@ -56,10 +56,17 @@ const { activeHeadings, updateHeadings } = useScrollspy()
 
 const isScrolled = ref(false)
 
+const onScroll = () => {
+    isScrolled.value = window.scrollY > 50
+}
+
 onMounted(() => {
-    window.addEventListener('scroll', () => {
-        isScrolled.value = window.scrollY > 50
-    })
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+})
+
+onBeforeUnmount(() => {
+    window.removeEventListener('scroll', onScroll)
 })
 
 const items = computed<NavigationMenuItem[]>(() => [
