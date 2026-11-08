@@ -12,7 +12,10 @@ export default defineNuxtConfig({
         }
     },
     image: {
-        dir: 'assets/images'
+        dir: 'assets/images',
+        ipx: {
+            maxAge: 2592000
+        }
     },
     fonts: {
         families: [
