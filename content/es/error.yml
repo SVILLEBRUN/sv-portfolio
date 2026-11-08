@@ -1,0 +1,17 @@
+back_home: "Volver al inicio"
+default:
+  status_message: "Error"
+  message: "Se ha producido un error inesperado, inténtalo de nuevo más tarde."
+codes:
+  - code: 403
+    status_message: "Acceso denegado"
+    message: "No tienes los permisos necesarios."
+  - code: 404
+    status_message: "Página no encontrada"
+    message: "La página que buscas no existe."
+  - code: 500
+    status_message: "Error del servidor"
+    message: "El servidor tiene un problema temporal, inténtalo de nuevo más tarde."
+  - code: 503
+    status_message: "Servicio no disponible"
+    message: "El sitio está en mantenimiento, inténtalo de nuevo más tarde."

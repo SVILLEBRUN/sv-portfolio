@@ -68,7 +68,7 @@
                         <div class="flex-1 flex flex-col border border-default rounded-2xl py-4 px-4 lg:py-10 lg:px-8">
                             <div class="md:text-2xl text-xl font-bold mb-2">{{ page.about.copy_email.title }}</div>
                             <ClientOnly>
-                                <div class="text-toned mb-2 text-sm lg:text-base"><span class="font-bold">Email : </span><a href="mailto:contact@sebastien-villebrun.com" class="hover:text-primary">contact@sebastien-villebrun.com</a></div>
+                                <div class="text-toned mb-2 text-sm lg:text-base"><span class="font-bold">{{ page.about.copy_email.email_label }} </span><a href="mailto:contact@sebastien-villebrun.com" class="hover:text-primary">contact@sebastien-villebrun.com</a></div>
                             </ClientOnly>
                             <div class="flex items-center justify-center h-full">
                                 <ClientOnly>

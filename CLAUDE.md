@@ -42,7 +42,7 @@ Copy `.env.example` to `.env` (ignored by git and Docker): `NUXT_MAIL_USER`, `NU
 
 **Single-page** site (`app/pages/index.vue`) where **all text comes from Nuxt Content**; there are no i18n message files.
 
-- **Multilingual content**: each of `content/{fr,en,es}/` holds `index.yml`, `header.yml`, `footer.yml`, `seo.yml` and `about_me.md`. Each file type is a collection typed by a zod schema in [content.config.ts](content.config.ts). Fields are `nonempty()`, so a missing field breaks the build or the query. Adding or changing a field means updating the schema **and** all three locales.
+- **Multilingual content**: each of `content/{fr,en,es}/` holds `index.yml`, `header.yml`, `footer.yml`, `seo.yml`, `error.yml` and `about_me.md`. Each file type is a collection typed by a zod schema in [content.config.ts](content.config.ts). Fields are `nonempty()`, so a missing field breaks the build or the query. Adding or changing a field means updating the schema **and** all three locales.
 - **Content queries**: each component uses `useAsyncData` + `queryCollection(...).path(...)` with `watch: [locale]`, and falls back to the default locale (`fr`) when a translation is missing. Paths are `/${locale}` for `index.yml` and `/${locale}/<name>` for the others (e.g. `/${locale}/seo`). Reuse this pattern for any new collection.
 - **Shared types**: `content.config.ts` also exports schemas/types (`ProjectItem`, `ContactForm`) that components import via `@@/content.config`.
 - **HTML in content**: some fields (`hero.title`, `contact.title`) contain HTML (e.g. `<span class="text-gradient">`) rendered with `v-html`.

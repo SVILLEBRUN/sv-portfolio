@@ -1,0 +1,17 @@
+back_home: "Retour à l'accueil"
+default:
+  status_message: "Erreur"
+  message: "Une erreur inattendue s'est produite, veuillez réessayer plus tard."
+codes:
+  - code: 403
+    status_message: "Accès refusé"
+    message: "Vous n'avez pas les autorisations nécessaires."
+  - code: 404
+    status_message: "Page introuvable"
+    message: "La page que vous cherchez n'existe pas."
+  - code: 500
+    status_message: "Erreur serveur"
+    message: "Le serveur rencontre un problème temporaire, veuillez réessayer plus tard."
+  - code: 503
+    status_message: "Service indisponible"
+    message: "Le site est en maintenance, veuillez réessayer plus tard."

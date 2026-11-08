@@ -64,6 +64,7 @@ about:
     items: [ Nuxt.js, Express.js, MongoDB, Docker ]
   copy_email:
     title: Get in touch
+    email_label: "Email:"
     button_default: Copy Email
     button_success: Email Copied!
   tools:

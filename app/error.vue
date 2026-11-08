@@ -4,7 +4,7 @@
             <UMain>
                 <UContainer>
                     <UPage>
-                        <UError :error="displayError" />
+                        <UError :error="displayError" :clear="{ label: errorContent?.back_home ?? 'Back to home' }" />
                     </UPage>
                 </UContainer>
             </UMain>
@@ -34,11 +34,38 @@ const ERROR_MAP: Record<number, typeof DEFAULT_ERROR> = {
     503: { statusMessage: 'Service Unavailable', message: 'The site is currently under maintenance, please try again later.' }
 }
 
+const { locale, defaultLocale } = useI18n()
+
+// The error page must never crash itself: any content failure falls back to the English texts above
+const { data: errorContent } = await useAsyncData(
+    () => `error-${locale.value}`,
+    async () => {
+        try {
+            let content = await queryCollection('error')
+                .path(`/${locale.value}/error`)
+                .first()
+            if (!content && locale.value !== defaultLocale) {
+                content = await queryCollection('error')
+                    .path(`/${defaultLocale}/error`)
+                    .first()
+            }
+            return content
+        } catch (e) {
+            console.error('Failed to load the error page content', e)
+            return null
+        }
+    },
+    { watch: [locale] }
+)
+
 const displayError = computed(() => {
-    const config = ERROR_MAP[props.error.statusCode as number] || DEFAULT_ERROR
+    const fromCode = errorContent.value?.codes.find(item => item.code === props.error.statusCode)
+    const config = fromCode ?? errorContent.value?.default
     return {
         statusCode: props.error.statusCode,
-        ...config
+        ...(config
+            ? { statusMessage: config.status_message, message: config.message }
+            : ERROR_MAP[props.error.statusCode as number] || DEFAULT_ERROR)
     }
 })
 

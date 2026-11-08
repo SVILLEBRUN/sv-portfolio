@@ -101,7 +101,8 @@ export default defineContentConfig({
             type: 'page',
             source: '**/header.yml',
             schema: z.object({
-                links: z.array(createLinkSchema())
+                links: z.array(createLinkSchema()),
+                language_label: z.string().nonempty()
             })
         }),
         index: defineCollection({
@@ -135,6 +136,7 @@ export default defineContentConfig({
                     }),
                     copy_email: z.object({
                         title: z.string().nonempty(),
+                        email_label: z.string().nonempty(),
                         button_default: z.string().nonempty(),
                         button_success: z.string().nonempty(),
                     }),
@@ -167,6 +169,22 @@ export default defineContentConfig({
             source: '**/about_me.md',
             schema: z.object({
                 title: z.string().nonempty(),
+            })
+        }),
+        error: defineCollection({
+            type: 'page',
+            source: '**/error.yml',
+            schema: z.object({
+                back_home: z.string().nonempty(),
+                default: z.object({
+                    status_message: z.string().nonempty(),
+                    message: z.string().nonempty()
+                }),
+                codes: z.array(z.object({
+                    code: z.number(),
+                    status_message: z.string().nonempty(),
+                    message: z.string().nonempty()
+                }))
             })
         }),
         footer: defineCollection({

@@ -86,7 +86,7 @@ const items = computed<NavigationMenuItem[]>(() => [
         active: activeHeadings.value.includes('contact') && !activeHeadings.value.includes('projects')
     },
     {
-        label: 'Langue',
+        label: header.value?.language_label,
         icon: 'i-lucide-globe',
         class: 'lg:hidden',
         children: [
