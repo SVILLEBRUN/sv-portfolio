@@ -90,11 +90,14 @@ const items = computed<NavigationMenuItem[]>(() => [
     }
 ])
 
-nuxtApp.hooks.hookOnce('page:finish', () => {
+// The page is recreated on every locale change, so headings must be re-observed after each render
+const unregisterPageFinish = nuxtApp.hook('page:finish', () => {
     updateHeadings([
         document.querySelector('#about'),
         document.querySelector('#projects'),
         document.querySelector('#contact')
     ].filter(Boolean) as Element[])
 })
+
+onBeforeUnmount(unregisterPageFinish)
 </script>
