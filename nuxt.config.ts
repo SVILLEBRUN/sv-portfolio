@@ -14,6 +14,11 @@ export default defineNuxtConfig({
     image: {
         dir: 'assets/images'
     },
+    fonts: {
+        families: [
+            { name: 'Plus Jakarta Sans', provider: 'google', weights: ['200 800'], styles: ['normal', 'italic'] }
+        ]
+    },
     components: [
         {
             path: '~/components',
@@ -43,25 +48,6 @@ export default defineNuxtConfig({
     runtimeConfig: {
         mailUser: process.env.NUXT_MAIL_USER,
         mailPass: process.env.NUXT_MAIL_PASS,
-        mailTarget: process.env.NUXT_MAIL_TARGET,
-        public: {
-            motion: {
-                directives: {
-                    'slide-up': {
-                        initial: { opacity: 0, y: 100 },
-                        visibleOnce: {
-                            opacity: 1,
-                            y: 0,
-                            transition: {
-                                type: 'keyframes',
-                                duration: 1200,
-                                ease: 'easeOut'
-                            }
-
-                        }
-                    }
-                }
-            }
-        }
+        mailTarget: process.env.NUXT_MAIL_TARGET
     }
 })
