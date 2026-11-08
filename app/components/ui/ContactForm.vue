@@ -150,7 +150,7 @@ onMounted(() => {
             hasDraftToRestore.value = true
         }
     } catch (e) {
-        console.error('Erreur lors de la récupération du brouillon', e)
+        console.error('Failed to restore the contact form draft', e)
     }
 })
 

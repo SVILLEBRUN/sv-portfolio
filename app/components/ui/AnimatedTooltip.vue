@@ -21,27 +21,27 @@ import { useMouseInElement } from '@vueuse/core'
 import { useMotion, useMotionProperties, useSpring, type PermissiveMotionProperties } from '@vueuse/motion'
 
 const target = ref(null)
-const tooltipContainer = ref(null) // L'élément qui suit la souris
-const tooltipContent = ref(null)   // L'élément qui gère l'anim d'entrée/sortie
+const tooltipContainer = ref(null) // Element that follows the mouse
+const tooltipContent = ref(null)   // Element that handles the enter/leave animation
 const isMounted = ref(false)
 
 const { elementX, elementWidth, isOutside } = useMouseInElement(target)
 
-// 1. On initialise les propriétés de mouvement pour le conteneur (suivi souris)
+// 1. Initialize the motion properties of the container (mouse tracking)
 const { motionProperties } = useMotionProperties(tooltipContainer, {
     x: 0,
     y: 0,
     rotate: 0,
 })
 
-// 2. On applique le ressort (Spring) sur ces propriétés
+// 2. Apply a spring to these properties
 const { set } = useSpring(motionProperties as PermissiveMotionProperties, {
-    stiffness: 200, // Plus c'est bas, plus c'est "organique"
-    damping: 10,    // Contrôle le rebond
+    stiffness: 200, // Lower means more "organic"
+    damping: 10,    // Controls the bounce
     mass: 2
 })
 
-// 3. Gestion de l'apparition (Scale/Opacity) via useMotion
+// 3. Handle the appearance (scale/opacity) with useMotion
 const { variant } = useMotion(tooltipContent, {
     initial: { opacity: 0, y: 20, scale: 0.5 },
     enter: {
