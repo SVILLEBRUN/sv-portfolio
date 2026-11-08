@@ -127,30 +127,47 @@ const state = reactive({
 })
 
 // Draft management
+type ContactDraft = Partial<Record<'fullname' | 'email' | 'subject' | 'message', string>>
+
+const DRAFT_KEY = 'contact_form_draft'
+
 const hasDraftToRestore = ref(false)
 const savedDraft = ref<{ subject?: string; message?: string } | null>(null)
 
-onMounted(() => {
-    const rawData = localStorage.getItem('contact_form_draft')
-    if (!rawData) return
-
+// Storage can be unavailable (private mode, blocked site data): never let it throw
+function readDraft(): ContactDraft | null {
     try {
-        const parsed = JSON.parse(rawData)
-
-        // 1. Always restore fullname and email
-        if (parsed.fullname) state.fullname = parsed.fullname
-        if (parsed.email) state.email = parsed.email
-
-        // 2. Restore draft if subject or message is present
-        if (parsed.subject || parsed.message) {
-            savedDraft.value = {
-                subject: parsed.subject || '',
-                message: parsed.message || ''
-            }
-            hasDraftToRestore.value = true
-        }
+        const rawData = localStorage.getItem(DRAFT_KEY)
+        return rawData ? JSON.parse(rawData) : null
     } catch (e) {
-        console.error('Failed to restore the contact form draft', e)
+        console.error('Failed to read the contact form draft', e)
+        return null
+    }
+}
+
+function saveDraft(draft: ContactDraft): void {
+    try {
+        localStorage.setItem(DRAFT_KEY, JSON.stringify(draft))
+    } catch (e) {
+        console.error('Failed to save the contact form draft', e)
+    }
+}
+
+onMounted(() => {
+    const parsed = readDraft()
+    if (!parsed) return
+
+    // 1. Always restore fullname and email
+    if (parsed.fullname) state.fullname = parsed.fullname
+    if (parsed.email) state.email = parsed.email
+
+    // 2. Restore draft if subject or message is present
+    if (parsed.subject || parsed.message) {
+        savedDraft.value = {
+            subject: parsed.subject || '',
+            message: parsed.message || ''
+        }
+        hasDraftToRestore.value = true
     }
 })
 
@@ -191,30 +208,30 @@ async function onSubmit(event: FormSubmitEvent<FormSchema>) {
             subject: event.data.subject,
             text: full_message
         })
-
-        toast.add({
-            title: props.text_content.submit.success,
-            color: 'success',
-            icon: 'i-lucide-mail'
-        })
-
-        localStorage.setItem('contact_form_draft', JSON.stringify({
-            fullname: event.data.fullname,
-            email: event.data.email
-        }))
-        
-        Object.assign(state, { subject: '', message: '' })
     } catch (error) {
-        localStorage.setItem('contact_form_draft', JSON.stringify(event.data))
+        saveDraft(event.data)
 
         toast.add({
             title: props.text_content.submit.alert,
             color: 'error',
             icon: 'i-lucide-alert-triangle'
         })
-
+        return
     } finally {
         isSubmitting.value = false
     }
+
+    toast.add({
+        title: props.text_content.submit.success,
+        color: 'success',
+        icon: 'i-lucide-mail'
+    })
+
+    saveDraft({
+        fullname: event.data.fullname,
+        email: event.data.email
+    })
+
+    Object.assign(state, { subject: '', message: '' })
 }
 </script>
