@@ -133,6 +133,7 @@ const DRAFT_KEY = 'contact_form_draft'
 
 const hasDraftToRestore = ref(false)
 const savedDraft = ref<{ subject?: string; message?: string } | null>(null)
+const savedIdentity = ref<Pick<ContactDraft, 'fullname' | 'email'>>({})
 
 // Storage can be unavailable (private mode, blocked site data): never let it throw
 function readDraft(): ContactDraft | null {
@@ -157,6 +158,8 @@ onMounted(() => {
     const parsed = readDraft()
     if (!parsed) return
 
+    savedIdentity.value = { fullname: parsed.fullname, email: parsed.email }
+
     // 1. Always restore fullname and email
     if (parsed.fullname) state.fullname = parsed.fullname
     if (parsed.email) state.email = parsed.email
@@ -179,8 +182,11 @@ function restoreDraft() {
     }
 }
 
+// Forget the saved subject and message, keep only the stored name and email
 function dismissDraft() {
     hasDraftToRestore.value = false
+    savedDraft.value = null
+    saveDraft({ ...savedIdentity.value })
 }
 
 const schema = z.object({
