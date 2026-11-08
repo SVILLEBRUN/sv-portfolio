@@ -82,6 +82,8 @@ about:
         logo: /tools_logo/tailwind_css.png
       - title: Javascript
         logo: /tools_logo/javascript.png
+      - title: Typescript
+        logo: /tools_logo/typescript.png
       - title: HTML
         logo: /tools_logo/html.png
       - title: CSS
@@ -118,6 +120,8 @@ about:
         logo: /tools_logo/mysql.png
       - title: PostgreSQL
         logo: /tools_logo/postgreSQL.png
+      - title: Prisma
+        logo: /tools_logo/prisma.png
       - title: Firebase
         logo: /tools_logo/firebase.png
 projects:
