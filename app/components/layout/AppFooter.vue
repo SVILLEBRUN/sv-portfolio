@@ -11,6 +11,7 @@
                                 <UButton 
                                     :icon="link.icon" 
                                     :to="link.to" 
+                                    :aria-label="link.label"
                                     target="_blank" 
                                     variant="link" 
                                     color="neutral" 

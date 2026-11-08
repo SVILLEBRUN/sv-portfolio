@@ -35,7 +35,7 @@ about:
         - title: Express.js
           description: Framework
           logo: /tools_logo/express_js.png
-        - title: Ruby on Rails,
+        - title: Ruby on Rails
           description: Framework
           logo: /tools_logo/ruby_on_rails.png
         - title: PostgreSQL

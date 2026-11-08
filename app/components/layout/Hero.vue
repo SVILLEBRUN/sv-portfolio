@@ -20,6 +20,7 @@
             <div class="mt-16 sm:mt-20 md:mt-24">
                 <UButton
                     to="#about"
+                    :aria-label="page.about.title"
                     variant="ghost"
                     class="group relative flex flex-col items-center hover:bg-transparent active:bg-transparent transition-all animate-soft-bounce"
                 >
