@@ -270,16 +270,10 @@ if(!page?.value || !about_me?.value) {
 // Carousel
 const carouselRef = ref()
 const restartCarousel = () => {
-    const emblaApi = carouselRef.value?.emblaApi
+    const autoScroll = carouselRef.value?.emblaApi?.plugins()?.autoScroll
 
-    if (emblaApi) {
-        const plugins = emblaApi.plugins()
-        const autoScroll = plugins.autoScroll
-        const isRunning = autoScroll.isPlaying()
-        
-        if (autoScroll && !isRunning) {
-            autoScroll.play()
-        }
+    if (autoScroll && !autoScroll.isPlaying()) {
+        autoScroll.play()
     }
 }
 
