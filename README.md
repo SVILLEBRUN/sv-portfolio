@@ -17,7 +17,7 @@ A modern, responsive, and performant developer portfolio designed to showcase my
 - **📱 Fully Responsive:** Clean and adaptive UI across all device sizes (Mobile, Tablet, Desktop) using Nuxt UI and Tailwind CSS v4.
 - **🌐 Multi-language Support (i18n):** Native internationalization support powered by `@nuxtjs/i18n` (English, French and Spanish)
 - **🎨 Smooth Animations:** Interactive UI micro-interactions driven by `@vueuse/motion`.
-- **📩 Integrated Contact Form:** Direct email delivery powered by `nuxt-mail`.
+- **📩 Integrated Contact Form:** Direct email delivery through a Nitro server route (`/api/contact`) powered by [Nodemailer](https://nodemailer.com/) (Gmail SMTP).
 - **🐳 Docker Ready:** Fully containerized setup with optimized builds for both Development and Production.
 - **🛡️ Type Safe:** Fully typed with TypeScript for robust and maintainable code.
 
@@ -29,7 +29,8 @@ A modern, responsive, and performant developer portfolio designed to showcase my
 - **Package Manager:** [pnpm](https://pnpm.io/)
 - **Language:** [TypeScript](https://www.typescriptlang.org/)
 - **Styling & UI:** [Tailwind CSS v4](https://tailwindcss.com/) & [Nuxt UI](https://ui.nuxt.com/)
-- **Database:** [SQLite](https://sqlite.org/) via [better-sqlite3](https://github.com/WiseLibs/better-sqlite3)
+- **Content:** [Nuxt Content v3](https://content.nuxt.com/) (local [SQLite](https://sqlite.org/) database via [better-sqlite3](https://github.com/WiseLibs/better-sqlite3))
+- **Email:** [Nodemailer](https://nodemailer.com/)
 - **Animations:** [@vueuse/motion](https://motion.vueuse.org/)
 - **Internationalization:** [@nuxtjs/i18n](https://i18n.nuxtjs.org/)
 - **Icons:** [Iconify](https://iconify.design/) (`lucide`, `tabler`)
@@ -71,7 +72,13 @@ pnpm install
 
 ### 2. Environment Variables
 
-Create a `.env` file in the root directory based on the variables below:
+Create a `.env` file in the root directory from the provided template:
+
+```bash
+cp .env.example .env
+```
+
+Then fill in the variables below:
 
 ```bash
 NUXT_MAIL_TARGET=target@example.com
@@ -129,7 +136,7 @@ Build and run the production container:
 
 ```bash
 docker build -t sv-portfolio .
-docker run -p 80:80 sv-portfolio
+docker run -p 8081:8081 --env-file .env sv-portfolio
 ```
 
 ---
