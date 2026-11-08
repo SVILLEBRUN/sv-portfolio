@@ -158,6 +158,42 @@ projects:
           logo: /tools_logo/i18n.png
         - title: Framer Motion
           logo: /tools_logo/framer_motion.png
+    - title: TV Time
+      description: Application full stack de suivi de séries née de la fermeture de TV Time
+      detailed_description: |
+        Quand l'application TV Time a fermé, j'ai perdu l'outil qui me servait à suivre mes séries. J'ai donc construit ma propre version : rechercher une série, la suivre et cocher les épisodes vus, avec une progression classée automatiquement (à regarder, en cours, à jour, terminée).
+
+        Le front Nuxt 4 et Nuxt UI dialogue avec une API REST Express 5 en TypeScript, avec Prisma et PostgreSQL, alimentée par l'API TMDB. La connexion par email ou par Google repose sur un cookie httpOnly servi depuis la même origine grâce à un proxy Nitro.
+
+        L'import des exports de l'ancienne application permet de récupérer tout son historique. Le projet est déployé en conteneurs Docker arm64 via une CI GitHub Actions.
+      key_features:
+        title: Fonctionnalités clés
+        features:
+          - Rechercher n'importe quelle série en direct via TMDB
+          - Suivre ses séries et cocher un épisode ou une saison entière
+          - Retrouver sa progression classée par statut
+          - Importer son historique TV Time et exporter ses données en JSON
+      github_button:
+        label: GitHub
+        to: https://github.com/SVILLEBRUN/tv-time
+      demo_button:
+        label: Démo
+        to: https://sebastien-villebrun.com/tv-time/
+      image: /projects/tv_time.png
+      main_stack: [ Nuxt.js, Express.js, PostgreSQL ]
+      stack:
+        - title: Nuxt.js
+          logo: /tools_logo/nuxt_js.png
+        - title: Typescript
+          logo: /tools_logo/typescript.png
+        - title: Express.js
+          logo: /tools_logo/express_js.png
+        - title: Prisma
+          logo: /tools_logo/prisma.png
+        - title: PostgreSQL
+          logo: /tools_logo/postgreSQL.png
+        - title: Docker
+          logo: /tools_logo/docker.png
     - title: Academint
       description: Plateforme de certifications de formation vérifiables via la blockchain
       detailed_description: |

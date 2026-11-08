@@ -159,6 +159,42 @@ projects:
           logo: /tools_logo/i18n.png
         - title: Framer Motion
           logo: /tools_logo/framer_motion.png
+    - title: TV Time
+      description: Aplicación full stack de seguimiento de series nacida del cierre de TV Time
+      detailed_description: |
+        Cuando la aplicación TV Time cerró, perdí la herramienta que usaba para seguir mis series. Así que construí mi propia versión: buscar una serie, seguirla y marcar los episodios vistos, con un progreso clasificado automáticamente (por ver, en curso, al día, terminada).
+
+        El front en Nuxt 4 y Nuxt UI se comunica con una API REST en Express 5 y TypeScript, con Prisma y PostgreSQL, alimentada por la API de TMDB. El inicio de sesión por email o con Google se basa en una cookie httpOnly servida desde el mismo origen gracias a un proxy de Nitro.
+
+        La importación de las exportaciones de la antigua aplicación permite recuperar todo el historial. El proyecto se despliega en contenedores Docker arm64 mediante una CI de GitHub Actions.
+      key_features:
+        title: Funcionalidades clave
+        features:
+          - Buscar cualquier serie en directo a través de TMDB
+          - Seguir tus series y marcar un episodio o una temporada entera
+          - Consultar tu progreso clasificado por estado
+          - Importar tu historial de TV Time y exportar tus datos en JSON
+      github_button:
+        label: GitHub
+        to: https://github.com/SVILLEBRUN/tv-time
+      demo_button:
+        label: Demo
+        to: https://sebastien-villebrun.com/tv-time/
+      image: /projects/tv_time.png
+      main_stack: [ Nuxt.js, Express.js, PostgreSQL ]
+      stack:
+        - title: Nuxt.js
+          logo: /tools_logo/nuxt_js.png
+        - title: Typescript
+          logo: /tools_logo/typescript.png
+        - title: Express.js
+          logo: /tools_logo/express_js.png
+        - title: Prisma
+          logo: /tools_logo/prisma.png
+        - title: PostgreSQL
+          logo: /tools_logo/postgreSQL.png
+        - title: Docker
+          logo: /tools_logo/docker.png
     - title: Academint
       description: Plataforma de certificación académica verificable mediante blockchain
       detailed_description: |

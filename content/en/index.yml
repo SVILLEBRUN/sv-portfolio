@@ -158,6 +158,42 @@ projects:
           logo: /tools_logo/i18n.png
         - title: Framer Motion
           logo: /tools_logo/framer_motion.png
+    - title: TV Time
+      description: Full-stack TV show tracker born from the shutdown of TV Time
+      detailed_description: |
+        When the TV Time app shut down, I lost the tool I relied on to keep track of my shows. So I built my own version: search for a show, follow it and check off watched episodes, with progress sorted automatically (to watch, in progress, up to date, finished).
+
+        The Nuxt 4 and Nuxt UI front end talks to an Express 5 REST API written in TypeScript, with Prisma and PostgreSQL, powered by the TMDB API. Email or Google sign-in relies on an httpOnly cookie served from the same origin through a Nitro proxy.
+
+        Importing exports from the old app brings back your entire history. The project is deployed as arm64 Docker containers through a GitHub Actions CI pipeline.
+      key_features:
+        title: Key Features
+        features:
+          - Search any show live through TMDB
+          - Follow your shows and check off an episode or a whole season
+          - Track your progress, sorted by status
+          - Import your TV Time history and export your data as JSON
+      github_button:
+        label: GitHub
+        to: https://github.com/SVILLEBRUN/tv-time
+      demo_button:
+        label: Live Demo
+        to: https://sebastien-villebrun.com/tv-time/
+      image: /projects/tv_time.png
+      main_stack: [ Nuxt.js, Express.js, PostgreSQL ]
+      stack:
+        - title: Nuxt.js
+          logo: /tools_logo/nuxt_js.png
+        - title: Typescript
+          logo: /tools_logo/typescript.png
+        - title: Express.js
+          logo: /tools_logo/express_js.png
+        - title: Prisma
+          logo: /tools_logo/prisma.png
+        - title: PostgreSQL
+          logo: /tools_logo/postgreSQL.png
+        - title: Docker
+          logo: /tools_logo/docker.png
     - title: Academint
       description: Blockchain-verified credential and training platform
       detailed_description: |
