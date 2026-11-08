@@ -11,6 +11,19 @@
     }
 
     --animate-soft-bounce: soft-bounce 1.5s infinite;
+
+    @keyframes slide-up {
+        from {
+            opacity: 0;
+            transform: translateY(100px);
+        }
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
+
+    --animate-slide-up: slide-up 1.2s ease-out both;
 }
 
 html {
