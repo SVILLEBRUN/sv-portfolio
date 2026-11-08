@@ -4,7 +4,7 @@
 
         <div class="container border-x border-default">
             <div class="pt-22 md:pt-32" id="about">
-                <div class="text-3xl md:text-5xl font-bold text-center">{{ page.about.title }}</div>
+                <h2 class="text-3xl md:text-5xl font-bold text-center">{{ page.about.title }}</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
                     <div v-for="(skill, skill_index) in page.about.skills" 
                         :key="skill_index" 
@@ -17,7 +17,7 @@
                         <div class="relative flex z-10 h-full w-full items-center rounded-4xl border border-default p-2 bg-default">
                             <NuxtImg :src="skill.image" :alt="skill.title" height="80" format="webp" quality="80" class="hidden lg:block mr-2"/>
                             <div class="text-center w-full h-full">
-                                <div class="text-lg font-bold mb-2">{{ skill.title }}</div>
+                                <h3 class="text-lg font-bold mb-2">{{ skill.title }}</h3>
                                 <div class="flex flex-wrap justify-center gap-2">
                                     <template v-for="(item, item_index) in skill.items" :key="item_index">
                                         <AnimatedTooltip class="group/item">
@@ -51,7 +51,7 @@
                     </div>
                     <div class="md:col-span-2 flex flex-col h-full gap-4">
                         <div class="flex-1 border border-default rounded-2xl py-4 px-4 lg:py-10 lg:px-8">
-                            <div class="md:text-2xl text-xl font-bold mb-4">{{ page.about.stack.title }}</div>
+                            <h3 class="md:text-2xl text-xl font-bold mb-4">{{ page.about.stack.title }}</h3>
                             <div class="flex flex-wrap gap-4">
                                 <UButton 
                                     v-for="(item, tech_index) of page.about.stack.items"
@@ -66,7 +66,7 @@
     
                         </div>
                         <div class="flex-1 flex flex-col border border-default rounded-2xl py-4 px-4 lg:py-10 lg:px-8">
-                            <div class="md:text-2xl text-xl font-bold mb-2">{{ page.about.copy_email.title }}</div>
+                            <h3 class="md:text-2xl text-xl font-bold mb-2">{{ page.about.copy_email.title }}</h3>
                             <ClientOnly>
                                 <div class="text-toned mb-2 text-sm lg:text-base"><span class="font-bold">{{ page.about.copy_email.email_label }} </span><a href="mailto:contact@sebastien-villebrun.com" class="hover:text-primary">contact@sebastien-villebrun.com</a></div>
                             </ClientOnly>
@@ -85,7 +85,7 @@
     
                 <!-- about.tools -->
                 <div class="mt-12 md:mt-22">
-                    <div class="md:text-2xl text-xl font-bold mb-12 text-center">{{ page.about.tools.title }}</div>
+                    <h3 class="md:text-2xl text-xl font-bold mb-12 text-center">{{ page.about.tools.title }}</h3>
                     <UCarousel 
                         ref="carouselRef"
                         @mouseleave="restartCarousel"
@@ -107,7 +107,7 @@
 
             <!-- page.projects -->
             <div class="pt-22 md:pt-32" id="projects">
-                <div class="text-3xl md:text-5xl font-bold text-center">{{ page.projects.title }}</div>
+                <h2 class="text-3xl md:text-5xl font-bold text-center">{{ page.projects.title }}</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
                     <template v-for="(project, project_index) in page.projects.items" :key="project_index">
                         <UModal
@@ -161,7 +161,7 @@
                         </UButton>
                     </ClientOnly>
                     
-                    <div class="text-4xl md:text-6xl font-semibold mb-2 sm:mb-4 md:mb-6" v-html="page.contact.title"></div>
+                    <h2 class="text-4xl md:text-6xl font-semibold mb-2 sm:mb-4 md:mb-6" v-html="page.contact.title"></h2>
                     
                     <div class="text-muted max-w-3xl mx-auto md:text-lg text-sm mb-10 sm:mb-12 md:mb-16 lg:mb-20 tracking-wide">{{ page.contact.description }}</div>
                     <div class="max-w-4xl mx-auto">

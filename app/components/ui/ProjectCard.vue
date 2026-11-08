@@ -14,7 +14,7 @@
             />
         </div>
 
-        <div class="font-bold text-xl md:text-2xl mt-2">{{ project.title }}</div>
+        <h3 class="font-bold text-xl md:text-2xl mt-2">{{ project.title }}</h3>
         
         <div class="mt-4 text-dimed">{{ project.description }}</div>
 
