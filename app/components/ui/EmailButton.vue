@@ -34,12 +34,16 @@ const props = defineProps<{
 
 const isEmailCopied = ref(false)
 
+let resetTimer: ReturnType<typeof setTimeout> | undefined
+
 const copyEmail = async () => {
     try {
         await navigator.clipboard.writeText(props.email)
         isEmailCopied.value = true
 
-        setTimeout(() => {
+        // Restart the delay on each copy so the success state lasts a full 10 s
+        clearTimeout(resetTimer)
+        resetTimer = setTimeout(() => {
             isEmailCopied.value = false
         }, 10000)
         
@@ -47,5 +51,7 @@ const copyEmail = async () => {
         console.error('Error copying email:', error)
     }
 }
+
+onBeforeUnmount(() => clearTimeout(resetTimer))
 
 </script>
