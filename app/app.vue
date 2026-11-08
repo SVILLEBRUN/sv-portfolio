@@ -29,6 +29,8 @@ const { data: seo } = await useAsyncData(
 
 useHead({
     title: () => seo.value?.title || '',
+    // The titles in seo.yml already contain the site name: do not let nuxt-seo-utils append it again
+    titleTemplate: '%s',
     link: [
         { rel: 'alternate', hreflang: 'fr', href: 'https://sebastien-villebrun.com' },
         { rel: 'alternate', hreflang: 'en', href: 'https://sebastien-villebrun.com/en' },
