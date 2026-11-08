@@ -174,6 +174,12 @@ onMounted(() => {
     }
 })
 
+// A send attempt replaces the stored draft, so the offer to restore the old one is obsolete
+function discardRestoreOffer() {
+    hasDraftToRestore.value = false
+    savedDraft.value = null
+}
+
 function restoreDraft() {
     if (savedDraft.value) {
         state.subject = savedDraft.value.subject || ''
@@ -184,8 +190,7 @@ function restoreDraft() {
 
 // Forget the saved subject and message, keep only the stored name and email
 function dismissDraft() {
-    hasDraftToRestore.value = false
-    savedDraft.value = null
+    discardRestoreOffer()
     saveDraft({ ...savedIdentity.value })
 }
 
@@ -215,6 +220,7 @@ async function onSubmit(event: FormSubmitEvent<FormSchema>) {
             text: full_message
         })
     } catch (error) {
+        discardRestoreOffer()
         saveDraft(event.data)
 
         toast.add({
@@ -233,6 +239,7 @@ async function onSubmit(event: FormSubmitEvent<FormSchema>) {
         icon: 'i-lucide-mail'
     })
 
+    discardRestoreOffer()
     saveDraft({
         fullname: event.data.fullname,
         email: event.data.email
