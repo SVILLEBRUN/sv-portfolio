@@ -242,7 +242,7 @@ projects:
           - Optimiser les temps de réponse via le caching et l'indexation sur la base de données
       # demo_button:
       #   label: Démo
-      #   to: https://sebastien.villebrun.com/movie-db-app/api/movies
+      #   to: https://sebastien-villebrun.com/movie-db-app/api/movies
       github_button: 
         label: GitHub
         to: https://github.com/SVILLEBRUN/Movie_db_app
