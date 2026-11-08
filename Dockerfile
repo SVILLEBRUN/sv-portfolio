@@ -1,4 +1,4 @@
-# Stage 1: Base (Installation des dépendances avec pnpm)
+# Stage 1: Base (install dependencies with pnpm)
 FROM node:26-alpine AS base
 RUN apk update && apk upgrade --no-cache
 WORKDIR /app
@@ -13,19 +13,19 @@ RUN --mount=type=cache,id=pnpm,target=/root/.local/share/pnpm/store \
     apk add --no-cache python3 make g++ \
     && pnpm install --frozen-lockfile
 
-# Stage 2: Development (Environnement de dev local)
+# Stage 2: Development (local dev environment)
 FROM base AS development-stage
 COPY . .
 EXPOSE 8081
 EXPOSE 24678
 CMD ["pnpm", "run", "dev"]
 
-# Stage 3: Build (Compilation Nuxt / Nitro)
+# Stage 3: Build (Nuxt / Nitro compilation)
 FROM base AS build
 COPY . .
 RUN pnpm run build
 
-# Stage 4: Production (Image finale autonome et ultra légère)
+# Stage 4: Production (standalone, lightweight final image)
 FROM node:26-alpine AS production-stage
 RUN apk update && apk upgrade --no-cache
 WORKDIR /app
