@@ -110,19 +110,21 @@
                 <h2 class="text-3xl md:text-5xl font-bold text-center">{{ page.projects.title }}</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
                     <template v-for="(project, project_index) in page.projects.items" :key="project_index">
+                        <ProjectCard 
+                            :project="project" 
+                            :trigger-id="'project-trigger-' + project_index"
+                            @open="openProjectIndex = project_index"
+                        />
                         <UModal
                             :open="openProjectIndex === project_index"
                             @update:open="(val) => openProjectIndex = val ? project_index : null"
+                            :title="project.title"
+                            :description="project.description"
+                            :content="{ onCloseAutoFocus: (event) => focusProjectTrigger(event, project_index) }"
                             :ui="{ 
                                 content: 'sm:max-w-2xl md:max-w-3xl w-full p-0 sm:rounded-xl ',
                             }"
-                            class="relative"
                         >
-                                <ProjectCard 
-                                    @click="openProjectIndex = project_index"
-                                    :project="project" 
-                                />
-
                                 <template #content>
                                     <div class="max-h-[95vh] overflow-y-auto">
                                         <UButton
@@ -178,7 +180,7 @@
                                         size="xl" 
                                         :icon="page.contact.email_button.icon" 
                                         variant="soft" 
-                                        class="pointer-events-none rounded-full p-4"
+                                        as="span" aria-hidden="true" class="pointer-events-none rounded-full p-4"
                                         color="secondary"
                                     />
                                     <div class="font-bold mt-2">{{ page.contact.email_button.label }}</div>
@@ -195,7 +197,7 @@
                                     size="xl" 
                                     :icon="page.contact.linkedin_button.icon" 
                                     variant="soft" 
-                                    class="pointer-events-none rounded-full p-4"
+                                    as="span" aria-hidden="true" class="pointer-events-none rounded-full p-4"
                                     color="info"
                                 />
                                 <div class="font-bold mt-2">{{ page.contact.linkedin_button.label }}</div>
@@ -211,7 +213,7 @@
                                     size="xl" 
                                     :icon="page.contact.github_button.icon" 
                                     variant="soft" 
-                                    class="pointer-events-none rounded-full p-4"
+                                    as="span" aria-hidden="true" class="pointer-events-none rounded-full p-4"
                                     color="neutral"
                                 />
                                 <div class="font-bold mt-2">{{ page.contact.github_button.label }}</div>
@@ -279,6 +281,12 @@ const restartCarousel = () => {
 
 // Project Modal
 const openProjectIndex = ref<number | null>(null)
+
+// The card is not the dialog trigger, so give focus back to its title button on close
+const focusProjectTrigger = (event: Event, index: number) => {
+    event.preventDefault()
+    document.getElementById(`project-trigger-${index}`)?.focus()
+}
 
 </script>
 

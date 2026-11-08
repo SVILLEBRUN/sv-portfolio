@@ -2,7 +2,7 @@
     <UCard 
         variant="subtle" 
         class="cursor-pointer"
-        :class="!detailed ? 'group/card hover:scale-105 transition-transform duration-300 glass-card' : ''"
+        :class="!detailed ? 'relative group/card hover:scale-105 transition-transform duration-300 glass-card has-[h3_button:focus-visible]:ring-2 has-[h3_button:focus-visible]:ring-primary' : ''"
     >
         <div class="w-full overflow-hidden" :class="detailed ? 'h-70' : 'h-48'">
             <NuxtImg 
@@ -16,7 +16,17 @@
             />
         </div>
 
-        <h3 class="font-bold text-xl md:text-2xl mt-2">{{ project.title }}</h3>
+        <h3 class="font-bold text-xl md:text-2xl mt-2">
+            <button
+                v-if="!detailed"
+                :id="triggerId"
+                type="button"
+                aria-haspopup="dialog"
+                class="text-left cursor-pointer after:absolute after:inset-0 focus:outline-hidden"
+                @click="$emit('open')"
+            >{{ project.title }}</button>
+            <template v-else>{{ project.title }}</template>
+        </h3>
         
         <div class="mt-4 text-dimed">{{ project.description }}</div>
 
@@ -38,8 +48,9 @@
 
         <div class="flex flex-wrap justify-center gap-2 mt-6">
             <template v-for="(item, item_index) in project.stack" :key="item_index">
+                <!-- Logo above the stretched title button so its tooltip still shows; a click still opens the details, as before -->
                 <UTooltip :content="{ side: 'top' }" :text="item.title" :delayDuration="100">
-                    <div  class="relative transition-transform duration-300 group/item group-hover/item:scale-100 cursor-pointer">
+                    <div  class="relative z-10 transition-transform duration-300 group/item group-hover/item:scale-100 cursor-pointer" @click="!detailed && $emit('open')">
                         <NuxtImg :src="item.logo" :alt="item.title" width="40" height="40" fit="inside" loading="lazy" format="webp" quality="40" class="bg-white rounded-full border-2 border-white flex items-center justify-center h-8 w-8 md:h-10 md:w-10 object-contain transition duration-300 group-hover/item:scale-110" />
                     </div>
                 </UTooltip>
@@ -71,7 +82,7 @@
                 color="neutral"
                 icon="i-tabler-brand-github"
                 size="xl"
-                class="flex-1 justify-center"
+                class="relative z-10 flex-1 justify-center"
                 @click.stop="$emit('close-modal')"
             >
                 {{ project.github_button?.label }}
@@ -84,7 +95,7 @@
                 color="primary"
                 icon="i-lucide-play"
                 size="xl"
-                class="flex-1 justify-center"
+                class="relative z-10 flex-1 justify-center"
                 @click.stop="$emit('close-modal')"
             >
                 {{ project.demo_button?.label }}
@@ -98,7 +109,7 @@
                 color="neutral"
                 icon="i-lucide-lock"
                 size="xl"
-                class="flex-1 justify-center"
+                class="relative z-10 flex-1 justify-center"
                 @click.stop="$emit('close-modal')"
             >
                 {{ project.private_button?.label }}
@@ -115,10 +126,12 @@ import type { ProjectItem } from '@@/content.config'
 const props = defineProps<{
     project: ProjectItem,
     detailed?: boolean,
+    triggerId?: string,
 }>()
 
 defineEmits<{
     (e: 'close-modal'): void
+    (e: 'open'): void
 }>()
 
 </script>
