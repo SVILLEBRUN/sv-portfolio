@@ -1,0 +1,20 @@
+# syntax = docker/dockerfile:1
+
+# Dependencies image, pushed to Docker Hub as sebvillebrun/sv-portfolio-dependencies:latest.
+# CI only rebuilds it when the files copied below change; the application
+# image (Dockerfile) starts from it so it doesn't reinstall node_modules.
+FROM node:26-alpine
+RUN apk update && apk upgrade --no-cache
+WORKDIR /app
+
+ENV CI=true
+
+RUN npm install -g pnpm@12
+
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml *.npmrc ./
+
+RUN --mount=type=cache,id=pnpm,target=/root/.local/share/pnpm/store \
+    apk add --no-cache python3 make g++ \
+    && pnpm install --frozen-lockfile
+
+LABEL stage=dependencies

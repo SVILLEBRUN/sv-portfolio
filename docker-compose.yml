@@ -2,8 +2,7 @@ services:
   app-dev:
     build:
       context: .
-      dockerfile: Dockerfile
-      target: 'development-stage'
+      dockerfile: dev.Dockerfile
     container_name: sv-portfolio
     ports:
       - "8081:8081"

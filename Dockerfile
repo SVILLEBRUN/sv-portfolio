@@ -1,31 +1,20 @@
-# Stage 1: Base (install dependencies with pnpm)
-FROM node:26-alpine AS base
-RUN apk update && apk upgrade --no-cache
-WORKDIR /app
+# syntax = docker/dockerfile:1
 
-ENV CI=true
+# Stage 1: Build (Nuxt / Nitro compilation), from the prebuilt dependencies image
+FROM sebvillebrun/sv-portfolio-dependencies:latest AS build
 
-RUN npm install -g pnpm@12
+# Fail fast if the dependencies image was built from other manifests than this
+# commit's (e.g. its CI build failed), instead of shipping stale node_modules
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml /tmp/manifests/
+RUN for f in package.json pnpm-lock.yaml pnpm-workspace.yaml; do \
+      cmp -s "/tmp/manifests/$f" "/app/$f" \
+        || { echo "$f differs from the dependencies image: rebuild it with Dockerfile.dependencies" >&2; exit 1; }; \
+    done
 
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml *.npmrc ./
-
-RUN --mount=type=cache,id=pnpm,target=/root/.local/share/pnpm/store \
-    apk add --no-cache python3 make g++ \
-    && pnpm install --frozen-lockfile
-
-# Stage 2: Development (local dev environment)
-FROM base AS development-stage
-COPY . .
-EXPOSE 8081
-EXPOSE 24678
-CMD ["pnpm", "run", "dev"]
-
-# Stage 3: Build (Nuxt / Nitro compilation)
-FROM base AS build
 COPY . .
 RUN pnpm run build
 
-# Stage 4: Production (standalone, lightweight final image)
+# Stage 2: Production (standalone, lightweight final image)
 FROM node:26-alpine AS production-stage
 RUN apk update && apk upgrade --no-cache
 WORKDIR /app

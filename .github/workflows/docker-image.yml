@@ -12,6 +12,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
+      - name: Filter changes
+        id: changes
+        uses: dorny/paths-filter@v4
+        with:
+          filters: |
+            dependencies:
+              - 'Dockerfile.dependencies'
+              - 'package.json'
+              - 'pnpm-lock.yaml'
+              - 'pnpm-workspace.yaml'
+              - '.npmrc'
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4
 
@@ -21,11 +33,21 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
+      - name: Build and push dependencies image
+        if: steps.changes.outputs.dependencies == 'true'
+        run: |
+          docker buildx build ./ \
+            --platform linux/arm64 \
+            --file ./Dockerfile.dependencies \
+            --tag sebvillebrun/sv-portfolio-dependencies:latest \
+            --push
+
       - name: Build and push sv-portfolio image
         run: |
           docker buildx build ./ \
             --platform linux/arm64 \
             --file ./Dockerfile \
             --target production-stage \
+            --pull \
             --tag sebvillebrun/sv-portfolio:latest \
             --push
