@@ -28,8 +28,9 @@ pnpm build            # Nitro build into .output/
 pnpm preview          # preview the production build
 pnpm generate         # static build (not used in production)
 
-docker compose up                                    # containerized dev with HMR, port 8081 (HMR on 24678)
+docker compose up                                    # containerized dev with HMR (dev.Dockerfile), port 8081 (HMR on 24678)
 docker compose -f docker-compose.prod.yml up --build # local production image, port 8081, reads .env
+docker build -f Dockerfile.dependencies -t sebvillebrun/sv-portfolio-dependencies:latest .  # needed before the line above if dependencies changed
 ```
 
 No tests, linter or typecheck are configured in this project.
@@ -61,4 +62,9 @@ Copy `.env.example` to `.env` (ignored by git and Docker): `NUXT_MAIL_USER`, `NU
 
 ## Deployment
 
-A push to `master` triggers [.github/workflows/docker-image.yml](.github/workflows/docker-image.yml) on a **self-hosted** runner. It builds the Dockerfile's `production-stage` target for `linux/arm64` and pushes it to Docker Hub as `sebvillebrun/sv-portfolio:latest`. The final image only contains `.output/` and runs `node server/index.mjs` on port 8081. The mail variables must be passed to the container (`env_file: .env` in `docker-compose.prod.yml`). **Pushing to `master` means publishing to production.**
+A push to `master` triggers [.github/workflows/docker-image.yml](.github/workflows/docker-image.yml) on a **self-hosted** runner. It builds two `linux/arm64` images and pushes them to Docker Hub:
+
+- `sebvillebrun/sv-portfolio-dependencies:latest` ([Dockerfile.dependencies](Dockerfile.dependencies)), the installed `node_modules`. A `dorny/paths-filter` step only rebuilds it when `Dockerfile.dependencies`, `package.json`, `pnpm-lock.yaml`, `pnpm-workspace.yaml` or `.npmrc` change. Keep that list in sync with the files the Dockerfile copies.
+- `sebvillebrun/sv-portfolio:latest`, the `production-stage` target of the [Dockerfile](Dockerfile), which starts `FROM` the dependencies image. Its build stage fails if the manifests differ from the ones baked into the dependencies image, rather than shipping stale `node_modules`.
+
+Local dev (`docker-compose.yml`) uses the standalone [dev.Dockerfile](dev.Dockerfile), which installs dependencies itself. The final image only contains `.output/` and runs `node server/index.mjs` on port 8081. The mail variables must be passed to the container (`env_file: .env` in `docker-compose.prod.yml`). **Pushing to `master` means publishing to production.**

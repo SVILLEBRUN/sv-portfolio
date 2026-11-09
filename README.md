@@ -160,9 +160,18 @@ Build and run the production container on `http://localhost:8081` (it reads the 
 docker compose -f docker-compose.prod.yml up --build
 ```
 
+The [Dockerfile](Dockerfile) starts from the prebuilt dependencies image `sebvillebrun/sv-portfolio-dependencies:latest` (pulled from Docker Hub if it isn't available locally). If you changed `package.json` or `pnpm-lock.yaml`, rebuild that image locally first, otherwise the build stops on a manifest mismatch:
+
+```bash
+docker build -f Dockerfile.dependencies -t sebvillebrun/sv-portfolio-dependencies:latest .
+```
+
 #### Deployment
 
-Every push to `master` deploys to production. The [GitHub Actions workflow](.github/workflows/docker-image.yml) runs on a self-hosted runner: it builds the `production-stage` target of the Dockerfile for `linux/arm64` and pushes it to Docker Hub as `sebvillebrun/sv-portfolio:latest`.
+Every push to `master` deploys to production. The [GitHub Actions workflow](.github/workflows/docker-image.yml) runs on a self-hosted runner and builds two images for `linux/arm64`, pushed to Docker Hub:
+
+- `sebvillebrun/sv-portfolio-dependencies:latest`, from [Dockerfile.dependencies](Dockerfile.dependencies): the `node_modules` installed with pnpm. It is only rebuilt when `Dockerfile.dependencies`, `package.json`, `pnpm-lock.yaml`, `pnpm-workspace.yaml` or `.npmrc` change, so most deployments skip the dependency install.
+- `sebvillebrun/sv-portfolio:latest`, the `production-stage` target of the [Dockerfile](Dockerfile), built on top of the dependencies image.
 
 The image only contains the Nitro output and listens on port `8081`. The mail variables must be passed to the container at runtime.
 
